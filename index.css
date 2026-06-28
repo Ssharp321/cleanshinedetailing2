@@ -237,9 +237,11 @@ nav {
 .pricing-box {
   background-color: var(--bg-light);
   display: flex;
+  max-width: 100%;
   width: 1000px;
   padding: 32px;
   border-radius: 20px;
+  gap: 24px;
 }
 
 .pricing-text{
@@ -488,6 +490,7 @@ nav {
   text-decoration: none;
   color: var(--text-light);
 }
+
 @media (min-width: 550px) {
   .cta-form-nav {
     display: flex;
@@ -528,6 +531,18 @@ nav {
     --side-padding: 48px;
     --flex-direction: row;
   }
+}
+@media (max-width: 1000px) {
+    .nav-links {
+        position: relative;
+        left: 0%;
+        transform: none;
+    }
+}
+@media (max-width: 700px) {
+  .nav-links {
+        display: none;
+    }
 }
 @media (min-width: 1200px) {
   :root {

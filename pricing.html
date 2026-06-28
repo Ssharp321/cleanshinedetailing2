@@ -2,10 +2,513 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ2KM3ZD');</script>
+    <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mobile Car Detailing Pricing - Clean Shine Detailing</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pricing.css">
+    <link rel="icon" type="image/png" href="resources\main-logo-cropped.png">
 </head>
 <body>
-    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2KM3ZD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav>
+      <a href="index.html" class="main-logo">
+        <img src="resources\main-logo.png" alt="Clean Shine Detailing Logo" class="desktop-img">
+        <img src="resources\main-logo-cropped.png" alt="Clean Shine Detailing Logo" class="mobile-img">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="ctas">
+        <a href="tel:+14807997248" class="cta-phone">
+          <img src="resources\phone.png" alt="Phone Clipart">
+          (480) 799-7248
+        </a>
+        <a href="#quote" class="cta-form cta-form-nav">
+          Book my detail
+        </a>
+      </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Mobile car detailing pricing</h1>
+        <p>Simple and transparent pricing. No hidden costs or fees - ever.</p>
+    </div>
+
+    <div class="pricing-steps">
+
+    <!-- STEP 1: VEHICLE -->
+    <div class="step">
+        <p class="step-eyebrow">Step 1</p>
+        <p class="step-title">Select your vehicle size</p>
+        <div class="vehicle-grid">
+        <div class="vehicle-btn active" onclick="selectVehicle(this, 'sedan')">
+            <div class="v-name">Coupe / Sedan</div>
+            <div class="v-eg">e.g. BMW 3-Series, Audi A4, Mercedes C-Class</div>
+        </div>
+        <div class="vehicle-btn" onclick="selectVehicle(this, 'suv')">
+            <div class="v-name">5-Seat SUV / Truck</div>
+            <div class="v-eg">e.g. Range Rover, BMW X3, Ford F-150</div>
+        </div>
+        <div class="vehicle-btn" onclick="selectVehicle(this, 'van')">
+            <div class="v-name">7-Seat SUV / Van</div>
+            <div class="v-eg">e.g. Cadillac Escalade, BMW X7, Mercedes GLS</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- STEP 2: SERVICE -->
+    <div class="step">
+        <p class="step-eyebrow">Step 2</p>
+        <p class="step-title">Choose your service</p>
+        <div class="packages-grid">
+
+        <!-- INTERIOR ONLY -->
+        <div class="pkg">
+            <p class="pkg-name">Interior only</p>
+            <p class="pkg-tagline">Full interior detail - deep cleaned, steam treated, and refreshed throughout.</p>
+            <p class="pkg-price" id="price-int">$198</p>
+            <p class="pkg-price-note">one-time · price varies by vehicle size</p>
+            <p class="pkg-section-label">Interior</p>
+            <ul class="pkg-list">
+            <li>2-Step deep professional vacuum</li>
+            <li>High pressure blowout (crevices, vents, cupholders, etc.)</li>
+            <li>Full steam cleaning (seats, carpets, floor mats, door panels, console, plastics)</li>
+            <li>Light stain treatment</li>
+            <li>Leather deep clean &amp; conditioning (matte finish)</li>
+            <li>Dress plastic (matte finish)</li>
+            <li>Clean windows, mirrors &amp; visor</li>
+            </ul>
+            <a href="#" class="pkg-book">Book now</a>
+        </div>
+
+        <!-- INTERIOR + EXTERIOR -->
+        <div class="pkg featured">
+            <span class="pkg-badge">Most popular</span>
+            <p class="pkg-name">Interior + Exterior</p>
+            <p class="pkg-tagline">Complete detail - fully cleaned inside and hand washed, waxed outside.</p>
+            <p class="pkg-price" id="price-both">$278</p>
+            <p class="pkg-price-note">one-time · price varies by vehicle size</p>
+            <p class="pkg-section-label">Interior</p>
+            <ul class="pkg-list">
+            <li>2-Step deep professional vacuum</li>
+            <li>High pressure blowout (crevices, vents, cupholders, etc.)</li>
+            <li>Full steam cleaning (seats, carpets, floor mats, door panels, console, plastics)</li>
+            <li>Light stain treatment</li>
+            <li>Leather deep clean &amp; conditioning (matte finish)</li>
+            <li>Dress plastic (matte finish)</li>
+            <li>Clean windows, mirrors &amp; visor</li>
+            </ul>
+            <p class="pkg-section-label">Exterior</p>
+            <ul class="pkg-list">
+            <li>Professional hand wash</li>
+            <li>Detail wheel face &amp; barrel</li>
+            <li>Dress tires</li>
+            <li>Clean door jams</li>
+            <li>Clean windows</li>
+            <li>Pre-treatment soak (bug removal, bird droppings, road debris)</li>
+            <li>High-gloss spray wax</li>
+            </ul>
+            <a href="#" class="pkg-book">Book now</a>
+        </div>
+
+        <!-- EXTERIOR ONLY -->
+        <div class="pkg">
+            <p class="pkg-name">Exterior only</p>
+            <p class="pkg-tagline">Professional wash, clay bar decontamination, and sealant protection. Not just a car wash.</p>
+            <p class="pkg-price" id="price-ext">$118</p>
+            <p class="pkg-price-note">one-time · price varies by vehicle size</p>
+            <p class="pkg-section-label">Exterior</p>
+            <ul class="pkg-list">
+            <li>Professional hand wash</li>
+            <li>Detail wheel face &amp; barrel</li>
+            <li>Dress tires</li>
+            <li>Clean door jams</li>
+            <li>Clean windows</li>
+            <li>Pre-treatment soak (bug removal, bird droppings, road debris)</li>
+            <li>Clay bar decontamination</li>
+            <li>Paint sealant application</li>
+            </ul>
+            <a href="#" class="pkg-book">Book now</a>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- STEP 3: ADD-ONS -->
+    <div class="step">
+        <p class="step-eyebrow">Step 3 - optional</p>
+        <p class="step-title">Add-ons</p>
+
+        <p class="addon-category">Interior add-ons</p>
+        <div class="addons-grid">
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Pet hair removal</span><span class="addon-popular">Popular</span></div>
+            <span class="addon-price">$30-$90</span>
+            </div>
+            <p class="addon-desc">Full pet hair removal from all surfaces and crevices throughout the vehicle.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Dog owners</span>
+            <span class="addon-tag">Cat owners</span>
+            <span class="addon-tag">Allergy relief</span>
+            <span class="addon-tag">Road trips</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Shampoo carpets</span><span class="addon-popular">Popular</span></div>
+            <span class="addon-price">$100</span>
+            </div>
+            <p class="addon-desc">Hot water extraction on all floor mats and carpets for a deep clean.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Coffee spills</span>
+            <span class="addon-tag">Mud &amp; dirt</span>
+            <span class="addon-tag">Kid messes</span>
+            <span class="addon-tag">Rainy season</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Shampoo seats</span><span class="addon-popular">Popular</span></div>
+            <span class="addon-price">$100</span>
+            </div>
+            <p class="addon-desc">Hot water extraction on all cloth and fabric seats.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Gym sweat</span>
+            <span class="addon-tag">Food stains</span>
+            <span class="addon-tag">Drink spills</span>
+            <span class="addon-tag">Kid messes</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Leather conditioning</span></div>
+            <span class="addon-price">$30</span>
+            </div>
+            <p class="addon-desc">Deep conditioning treatment to restore and protect leather surfaces.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Cracked leather</span>
+            <span class="addon-tag">Faded seats</span>
+            <span class="addon-tag">Older vehicles</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Trim restoration</span></div>
+            <span class="addon-price">$40</span>
+            </div>
+            <p class="addon-desc">Restores faded interior trim panels back to a clean, original finish.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Faded plastics</span>
+            <span class="addon-tag">Older vehicles</span>
+            <span class="addon-tag">Selling your car</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Bio cleaning</span></div>
+            <span class="addon-price">$100</span>
+            </div>
+            <p class="addon-desc">Full decontamination and extraction for biohazard situations.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Vomit cleanup</span>
+            <span class="addon-tag">Pet incidents</span>
+            <span class="addon-tag">Biohazard</span>
+            </div>
+        </div>
+        </div>
+
+        <p class="addon-category" style="margin-top: 24px;">Exterior add-ons</p>
+        <div class="addons-grid">
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Clay bar treatment</span></div>
+            <span class="addon-price">$60</span>
+            </div>
+            <p class="addon-desc">Removes embedded paint contaminants for a smooth, clean surface.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Rough paint feel</span>
+            <span class="addon-tag">Tree sap</span>
+            <span class="addon-tag">Pre-wax prep</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Engine bay detail</span></div>
+            <span class="addon-price">$50</span>
+            </div>
+            <p class="addon-desc">Clean and degrease engine compartment for a showroom finish under the hood.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Selling your car</span>
+            <span class="addon-tag">Car enthusiasts</span>
+            <span class="addon-tag">Lease return</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Headlight restoration</span></div>
+            <span class="addon-price">$80</span>
+            </div>
+            <p class="addon-desc">Removes oxidation and restores clarity to both headlights.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Foggy lenses</span>
+            <span class="addon-tag">Night driving</span>
+            <span class="addon-tag">Safety upgrade</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Glass ceramic coating</span></div>
+            <span class="addon-price">$150</span>
+            </div>
+            <p class="addon-desc">Ceramic sealant on all glass for water repellency and long-term clarity.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Rain repellency</span>
+            <span class="addon-tag">Better visibility</span>
+            <span class="addon-tag">Long-term protection</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Scratch removal</span></div>
+            <span class="addon-price">Call for quote</span>
+            </div>
+            <p class="addon-desc">Light to moderate scratch removal depending on paint depth and condition.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Selling your car</span>
+            <span class="addon-tag">Light scratches</span>
+            <span class="addon-tag">Paint refresh</span>
+            </div>
+        </div>
+        <div class="addon-card">
+            <div class="addon-top">
+            <div class="addon-name-wrap"><span class="addon-name">Swirl removal</span></div>
+            <span class="addon-price">Call for quote</span>
+            </div>
+            <p class="addon-desc">Machine polishing to remove swirl marks and restore paint clarity.</p>
+            <p class="addon-for-label">Perfect for:</p>
+            <div class="addon-tags">
+            <span class="addon-tag">Dark paint cars</span>
+            <span class="addon-tag">Show prep</span>
+            <span class="addon-tag">Enthusiasts</span>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- STEP 4: PLANS -->
+    <div class="step">
+        <p class="step-eyebrow">Step 4 - optional</p>
+        <p class="step-title">Save with a service plan</p>
+        <div class="plans-grid">
+        <div class="plan-card">
+            <p class="plan-name">Quarterly</p>
+            <p class="plan-freq">1 detail every 3 months</p>
+            <p class="plan-price" id="plan-price-quarterly">$XXX</p>
+            <p class="plan-save" id="plan-save-quarterly">Save $XX per visit</p>
+            <ul class="plan-perks">
+            <li>Locked-in lower rate</li>
+            <li>No contracts</li>
+            <li>Cancel anytime</li>
+            </ul>
+        </div>
+        <div class="plan-card featured">
+            <span class="plan-top-badge">Most picked</span>
+            <p class="plan-name">Bi-monthly</p>
+            <p class="plan-freq">1 detail every 2 months</p>
+            <p class="plan-price" id="plan-price-bimonthly">$XXX</p>
+            <p class="plan-save" id="plan-save-bimonthly">Save $XX per visit</p>
+            <ul class="plan-perks">
+            <li>Locked-in lower rate</li>
+            <li>No contracts</li>
+            <li>Cancel anytime</li>
+            <li>Priority booking</li>
+            </ul>
+        </div>
+        <div class="plan-card">
+            <p class="plan-name">Monthly</p>
+            <p class="plan-freq">1 detail per month</p>
+            <p class="plan-price" id="plan-price-monthly">$XXX</p>
+            <p class="plan-save" id="plan-save-monthly">Save $XX per visit</p>
+            <ul class="plan-perks">
+            <li>Locked-in lower rate</li>
+            <li>No contracts</li>
+            <li>Cancel anytime</li>
+            <li>Priority booking</li>
+            </ul>
+        </div>
+        </div>
+        <p class="plan-note">No contracts. Cancel anytime. Plans require a minimum of 3 completed services to retain discounted pricing. If you cancel before 3 services, the difference between your plan rate and the one-time rate will be charged for services already received.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="step">
+        <p class="step-title">Frequently asked questions</p>
+        <div class="faq-list">
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            Do I need to provide water?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">No - we bring water and all professional equipment. All you need to do is provide access to your vehicle and a power source.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            Do you come to me?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">Yes - that's the whole point. We come to your home, office, or wherever your car is parked. No drop-off required, no waiting at a shop.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            Do you require a deposit?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">No deposit required to book. Payment is collected after the job is complete and you're happy with the results.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            How long does a detail take?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">An interior detail typically takes 1.5-2 hours. A full interior + exterior detail usually takes 2-4 hours depending on vehicle size and condition. We'll give you an accurate estimate when you book.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            What forms of payment do you accept?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">We accept all major credit and debit cards, cash, and Zelle. Payment is collected after the service is complete.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            Why is Clean Shine more expensive than other detailers?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">You're getting Jordan personally - the owner - on every single job. Not a hired tech, not a subcontractor. That means consistent results, real accountability, and someone who genuinely cares about your car because his reputation depends on it.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            Do you offer maintenance plans?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">Yes - monthly, bi-monthly, and quarterly plans with locked-in lower rates and priority booking. No contracts, cancel anytime.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            What types of vehicles do you service?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">Coupes, sedans, SUVs, trucks, and vans. Pricing varies by vehicle size. Contact us for a custom quote on oversized vehicles or specialty cars.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+            How do I book?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-divider"></div>
+            <div class="faq-a">Book online using the button at the top of the page, or call/text us directly at (480) 799-7248. We typically have availability within the same week.</div>
+        </div>
+
+        </div>
+    </div>
+
+    </div>
+    <section class="section-footer">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      © 2026 Clean Shine Detailing. All rights reserved
+    </section>
+    <script>
+    const prices = {
+        sedan: {
+            int: '$198', both: '$278', ext: '$118',
+            quarterly: '$228', quarterSave: 'Save $50 per visit',
+            bimonthly: '$208', biSave: 'Save $70 per visit',
+            monthly:   '$178', monthlySave: 'Save $100 per visit'
+        },
+        suv: {
+            int: '$248', both: '$328', ext: '$128',
+            quarterly: '$278', quarterSave: 'Save $50 per visit',
+            bimonthly: '$258', biSave: 'Save $70 per visit',
+            monthly:   '$228', monthlySave: 'Save $100 per visit'
+        },
+        van: {
+            int: '$298', both: '$378', ext: '$148',
+            quarterly: '$328', quarterSave: 'Save $50 per visit',
+            bimonthly: '$308', biSave: 'Save $70 per visit',
+            monthly:   '$278', monthlySave: 'Save $100 per visit'
+        }
+    };
+
+    function selectVehicle(btn, size) {
+        document.querySelectorAll('.vehicle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const p = prices[size];
+        document.getElementById('price-int').textContent = p.int;
+        document.getElementById('price-both').textContent = p.both;
+        document.getElementById('price-ext').textContent = p.ext;
+        document.getElementById('plan-price-quarterly').textContent = p.quarterly;
+        document.getElementById('plan-save-quarterly').textContent = p.quarterSave;
+        document.getElementById('plan-price-bimonthly').textContent = p.bimonthly;
+        document.getElementById('plan-save-bimonthly').textContent = p.biSave;
+        document.getElementById('plan-price-monthly').textContent = p.monthly;
+        document.getElementById('plan-save-monthly').textContent = p.monthlySave;
+    }
+
+    function toggleFaq(header) {
+        const divider = header.nextElementSibling;
+        const body = divider.nextElementSibling;
+        const chevron = header.querySelector('.faq-chevron');
+        const isOpen = body.classList.contains('open');
+        body.classList.toggle('open');
+        chevron.classList.toggle('open');
+        divider.classList.toggle('open');
+    }
+    </script>
 </body>
 </html>
