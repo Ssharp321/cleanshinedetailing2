@@ -40,7 +40,7 @@
       </div>
     </nav>
     <section class="section-form" id="quote">
-      <form action="https://formspree.io/f/mnnwgyag" method="POST" class="form-box">
+      <form action="https://formspree.io/f/mnnwgyag" method="POST" class="form-box" id="quoteForm">
         <p class="form-eyebrow" style="color: var(--accent);">Clean Shine Detailing</p>
         <h2 class="form-headline">Get my free quote</h2>
         <p class="form-subtext">We'll call you back within the hour.</p>
@@ -79,5 +79,36 @@
       </div>
       © 2026 Clean Shine Detailing. All rights reserved
     </section>
+    <script>
+      const quoteForm = document.getElementById("quoteForm");
+      quoteForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const submitBtn = quoteForm.querySelector(".form-submit");
+        const originalBtnHTML = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        const data = new FormData(quoteForm);
+
+        fetch(quoteForm.action, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        })
+          .then((response) => {
+            if (response.ok) {
+              window.location.href = "thank-you.html";
+            } else {
+              throw new Error("Submission failed");
+            }
+          })
+          .catch(() => {
+            alert("Oops! Something went wrong submitting the form. Please try again or call us at (480) 799-7248.");
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHTML;
+          });
+      });
+    </script>
 </body>
 </html>
