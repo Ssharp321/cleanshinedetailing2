@@ -1,0 +1,18 @@
+# Clean Shine Detailing
+
+> Mobile car detailing service in Arizona. We come to your home or office to hand wash, polish, and detail your vehicle. Serving Chandler, Scottsdale, and the greater Phoenix metro area.
+
+## Pages
+
+- [Home](https://cleanshinedetailing.com/): Overview of Clean Shine Detailing's mobile car detailing services across Arizona, customer reviews, and service areas.
+- [Pricing](https://cleanshinedetailing.com/pricing.html): Full pricing breakdown by vehicle type, detailing packages, add-ons, and membership plans.
+- [Contact](https://cleanshinedetailing.com/contact.html): Request a free quote; we call back within the hour.
+
+## Locations
+
+- [Chandler Car Detailing](https://cleanshinedetailing.com/landing-page-chandler.html): Mobile detailing service for Chandler, AZ.
+- [Scottsdale Car Detailing](https://cleanshinedetailing.com/landing-page-scottsdale.html): Mobile detailing service for Scottsdale, AZ.
+
+## Contact
+
+Phone: (480) 799-7248
