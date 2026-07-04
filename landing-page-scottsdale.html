@@ -577,6 +577,22 @@ nav {
       © 2026 Clean Shine Detailing. All rights reserved
     </section>
     <script>
+      // Capture URL tracking params and inject as hidden fields
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const trackingParams = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_keyword', 'utm_content'];
+        trackingParams.forEach(function(param) {
+          const value = params.get(param);
+          if (value) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = param;
+            input.value = value;
+            document.getElementById('quoteForm').appendChild(input);
+          }
+        });
+      })();
+
       const quoteForm = document.getElementById("quoteForm");
       quoteForm.addEventListener("submit", function (e) {
         e.preventDefault();
