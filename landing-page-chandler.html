@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Preload hero image first for fastest LCP -->
     <link rel="preload" as="image" href="resources/hero.webp" fetchpriority="high">
+    <meta name="description" content="Mobile car detailing in Chandler AZ. We come to your home or office. 5-star rated on Google. No deposit — pay when done. Get a free quote today.">
+    <link rel="icon" type="image/png" href="resources/main-logo-cropped.webp">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -12,13 +15,13 @@
     })(window,document,'script','dataLayer','GTM-WQ2KM3ZD');</script>
     <!-- End Google Tag Manager -->
     <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
       gtag('config', 'AW-17691480552/FUc7CPyHicccEOij-vNB', {
         'phone_conversion_number': '(480) 799-7248'
       });
     </script>
-    <meta name="description" content="Mobile car detailing in Chandler AZ. We come to your home or office. 5-star rated on Google. No deposit — pay when done. Get a free quote today.">
-    <link rel="icon" type="image/png" href="resources/main-logo-cropped.webp">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
@@ -438,12 +441,12 @@ nav {
     <!-- End Google Tag Manager (noscript) -->
     <nav>
       <a class="main-logo">
-        <img src="resources/main-logo.png" alt="Clean Shine Detailing Logo" class="desktop-img">
-        <img src="resources/main-logo-cropped.webp" alt="Clean Shine Detailing Logo" class="mobile-img">
+        <img src="resources/main-logo.png" alt="Clean Shine Detailing Logo" class="desktop-img" width="200" height="60">
+        <img src="resources/main-logo-cropped.webp" alt="Clean Shine Detailing Logo" class="mobile-img" width="60" height="60">
       </a>
       <div class="ctas">
         <a href="tel:+14807997248" class="cta-phone">
-          <img src="resources/phone.png" alt="Phone Clipart">
+          <img src="resources/phone.png" alt="Phone Clipart" width="18" height="18">
           (480) 799-7248
         </a>
         <a href="#quote" class="cta-form cta-form-nav">
@@ -453,12 +456,12 @@ nav {
     </nav>
     <section class="section-hero">
       <div class="hero-txt">
-        <img src="resources/google-stars-horizontal.png" style="max-width: 320px;" fetchpriority=high alt="5 star reviews on google" class="google-reviews-hero">
+        <img src="resources/google-stars-horizontal.png" style="max-width: 320px;" fetchpriority="high" alt="5 star reviews on google" class="google-reviews-hero" width="320" height="40">
         <h1 class="mvp">Chandler car detailing - Make your car shine like new.</h1>
         <p class="mvp-subtext">Rated 5 stars on Google. We come to your home in Chandler and detail your car inside and out so it feels showroom ready again.</p>
         <div class="ctas">
           <a href="tel:+14807997248" class="cta-phone">
-          <img src="resources/phone.png" alt="Phone Clipart">
+          <img src="resources/phone.png" alt="Phone Clipart" width="18" height="18">
           (480) 799-7248
           </a>
           <a href="#quote" class="cta-form">
@@ -467,40 +470,40 @@ nav {
         </div>
       </div>
       <div class="hero-img">
-        <img src="resources/hero.webp" fetchpriority="high" alt="">
+        <img src="resources/hero.webp" fetchpriority="high" alt="Car detailing in Chandler AZ" width="1200" height="800">
       </div>
     </section>
     <section class="section-reviews" id="reviews">
       <div class="review-box">
         <div class="review-info">
-          <img src="resources/paul-profile.png" alt="" class="review-profile-picture">
+          <img src="resources/paul-profile.png" alt="Paul B" class="review-profile-picture" width="40" height="40" loading="lazy">
           <div class="review-stars-name">
             <p>Paul B</p>
-            <img src="resources/stars.png" alt="">
+            <img src="resources/stars.png" alt="5 stars" width="100" height="20" loading="lazy">
           </div>
-          <img src="resources/google-review-logo.webp" alt="" class="review-google-logo">
+          <img src="resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
         </div>
         <p>Jordan spent hours cleaning every millimeter of our Lexus. It was the most precise detailing I've ever had. When he finished, it looked so nice I thought it was someone else's car. Additionally, Jordan is both polite and careful. I won't hesitate to use him again.</p>
       </div>
       <div class="review-box">
         <div class="review-info">
-          <img src="resources/jessica-profile.png" alt="">
+          <img src="resources/jessica-profile.png" alt="Jessica Carney" width="40" height="40" loading="lazy">
           <div class="review-stars-name">
             <p>Jessica Carney</p>
-            <img src="resources/stars.png" alt="">
+            <img src="resources/stars.png" alt="5 stars" width="100" height="20" loading="lazy">
           </div>
-          <img src="resources/google-review-logo.webp" alt="" class="review-google-logo">
+          <img src="resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
         </div>
         <p>Jordan did a fantastic job!! This young man has incredible work ethic, and takes pride in his job and it shows. I couldn't be happier with the outcome of my car, it now looks as good as it did when I took it home from the dealership!! Great work Jordan!</p>
       </div>
       <div class="review-box">
         <div class="review-info">
-          <img src="resources/sam-profile.png" alt="">
+          <img src="resources/sam-profile.png" alt="Sam Groove" width="40" height="40" loading="lazy">
           <div class="review-stars-name">
             <p>Sam Groove</p>
-            <img src="resources/stars.png" alt="">
+            <img src="resources/stars.png" alt="5 stars" width="100" height="20" loading="lazy">
           </div>
-          <img src="resources/google-review-logo.webp" alt="" class="review-google-logo">
+          <img src="resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
         </div>
         <p>Jordan came through for me last minute on a Saturday morning and did a fantastic job. Will be using their services again in the future. Support your local businesses!</p>
       </div>
@@ -533,10 +536,10 @@ nav {
         <div style="width: 100%; display: flex; flex-direction: column; gap: 12px;">
           <a href="#quote" class="pricing-quote-cta">
             Get my quote
-            <img src="resources/arrow.png" alt="arrow">
+            <img src="resources/arrow.png" alt="arrow" width="20" height="20" loading="lazy">
           </a>
           <p class="no-spam-text">
-            <img src="resources/lock.png" alt="lock">
+            <img src="resources/lock.png" alt="lock" width="12" height="12" loading="lazy">
             No spam. Just a quick call within the hour.
           </p>
         </div>
@@ -551,7 +554,7 @@ nav {
         <div class="form-field">
           <label for="name">Your name</label>
           <div class="form-input-wrap">
-            <img src="resources/person.png" alt="">
+            <img src="resources/person.png" alt="" width="20" height="20">
             <input type="text" id="name" name="name" placeholder="Jake Thomson" required>
           </div> 
         </div>
@@ -559,17 +562,17 @@ nav {
         <div class="form-field">
           <label for="phone">Phone number</label>
           <div class="form-input-wrap">
-            <img src="resources/phone-accent.png" alt="">
+            <img src="resources/phone-accent.png" alt="" width="20" height="20">
             <input type="tel" id="phone" name="phone" placeholder="(480) 555-0192" required>
           </div>
         </div>
 
         <button type="submit" class="cta-form form-submit">
           Get my quote
-          <img src="resources/arrow.png" alt="">
+          <img src="resources/arrow.png" alt="" width="20" height="20">
         </button>
         <p class="form-trust">
-          <img src="resources/lock.png" alt="">
+          <img src="resources/lock.png" alt="" width="12" height="12">
           No spam. Just a quick call.
         </p>
       </form>
