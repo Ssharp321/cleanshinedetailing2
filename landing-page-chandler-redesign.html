@@ -581,8 +581,8 @@ body.reveal-armed [data-reveal].reveal-in {
     <header>
       <nav>
         <a href="#top" class="main-logo">
-          <img src="resources/main-logo.png" alt="Clean Shine Detailing" class="desktop-img" width="200" height="60">
-          <img src="resources/main-logo-cropped.webp" alt="Clean Shine Detailing" class="mobile-img" width="60" height="60">
+          <img src="resources/main-logo.png" alt="Clean Shine Detailing" class="desktop-img" width="200" height="60" fetchpriority="high">
+          <img src="resources/main-logo-cropped.webp" alt="Clean Shine Detailing" class="mobile-img" width="60" height="60" fetchpriority="high">
         </a>
         <div class="ctas">
           <a href="tel:+14807997248" class="cta-phone" aria-label="Call Clean Shine Detailing at (480) 799-7248">
@@ -1010,9 +1010,11 @@ body.reveal-armed [data-reveal].reveal-in {
           },
           { threshold: 0.15 }
         );
-        revealEls.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        const viewportHeight = window.innerHeight;
+        const rects = Array.from(revealEls, (el) => el.getBoundingClientRect());
+        revealEls.forEach((el, i) => {
+          const rect = rects[i];
+          const alreadyVisible = rect.top < viewportHeight && rect.bottom > 0;
           if (alreadyVisible) {
             el.classList.add('reveal-in');
           } else {
