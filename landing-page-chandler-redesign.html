@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="resources/hero.webp" as="image" fetchpriority="high">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -367,28 +368,8 @@ body.reveal-armed [data-reveal].reveal-in {
   transition: transform 220ms var(--ease-out-quart), box-shadow 220ms var(--ease-out-quart);
 }
 .gallery-slot:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
-.gallery-slot-compare {
-  flex-direction: column;
-  padding: 0;
-  gap: 0;
-}
-.gallery-slot-compare .compare-half {
-  flex: 1;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 600;
-  color: var(--text-faint);
-}
-.gallery-slot-compare .compare-half:first-child {
-  border-bottom: 1.5px dashed var(--border);
-}
-/* Mobile (2-column grid): reorder so interior fills the left column,
-   exterior fills the right column, before/after compares land in the middle row.
+/* Mobile (2-column grid): reorder so interior fills the left column
+   and exterior fills the right column.
    Desktop's 3-column grid already gets this grouping from natural DOM order. */
 @media (max-width: 699px) {
   .gallery-grid > :nth-child(1) { order: 1; }
@@ -526,9 +507,6 @@ body.reveal-armed [data-reveal].reveal-in {
   background-color: var(--text-muted); color: var(--text-light);
   padding: var(--section-padding) var(--side-padding); gap: 14px; text-align: center;
 }
-.footer-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-.footer-links a { display: inline-block; padding: 6px 0; text-decoration: none; color: var(--text-light); font-size: 14px; }
-.footer-links a:hover { text-decoration: underline; }
 .footer-phone { font-size: 14px; }
 .footer-copy { font-size: 12px; opacity: 0.8; }
 
@@ -597,11 +575,12 @@ body.reveal-armed [data-reveal].reveal-in {
     <!-- End Google Tag Manager (noscript) -->
 
     <a href="#main" class="skip-link">Skip to main content</a>
+    <div id="top" aria-hidden="true"></div>
     <div id="nav-sentinel" aria-hidden="true" style="position: absolute; top: 0; left: 0; height: 1px; width: 1px; pointer-events: none;"></div>
 
     <header>
       <nav>
-        <a href="index.html" class="main-logo">
+        <a href="#top" class="main-logo">
           <img src="resources/main-logo.png" alt="Clean Shine Detailing" class="desktop-img" width="200" height="60">
           <img src="resources/main-logo-cropped.webp" alt="Clean Shine Detailing" class="mobile-img" width="60" height="60">
         </a>
@@ -621,7 +600,7 @@ body.reveal-armed [data-reveal].reveal-in {
         <div class="hero-txt">
           <p class="trust-line">
             <span class="stars" aria-hidden="true">★★★★★</span>
-            <span>5.0 on Google (34+ reviews)</span>
+            <span>5.0 on Google (38+ reviews)</span>
             <span class="dot" aria-hidden="true">·</span>
             <span>Chandler, AZ</span>
           </p>
@@ -636,7 +615,9 @@ body.reveal-armed [data-reveal].reveal-in {
           </div>
         </div>
         <div class="hero-media">
-          <div class="media-slot" style="aspect-ratio: 4/3;">Add before / after photo here</div>
+          <div class="media-slot" style="aspect-ratio: 4/3; border: none; padding: 0;">
+            <img src="resources/hero.webp" alt="Freshly detailed car exterior, showroom shine" width="800" height="600" fetchpriority="high" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
+          </div>
         </div>
       </section>
 
@@ -738,25 +719,31 @@ body.reveal-armed [data-reveal].reveal-in {
         </div>
       </section>
 
-      <!-- 4. BEFORE / AFTER GALLERY -->
+      <!-- 4. RESULTS GALLERY -->
       <section class="section section-alt" aria-labelledby="gallery-title">
         <div class="section-inner">
           <p class="section-eyebrow">Recent work</p>
-          <h2 class="section-title" id="gallery-title">See the transformation</h2>
-          <p class="section-subtext">Real before-and-after photos from recent Chandler details.</p>
+          <h2 class="section-title" id="gallery-title">See the results</h2>
+          <p class="section-subtext">Real photos from recent Chandler details.</p>
           <div class="gallery-grid">
-            <div class="media-slot gallery-slot" data-reveal style="--i: 0">Interior, after: dashboard</div>
-            <div class="media-slot gallery-slot gallery-slot-compare" data-reveal style="--i: 1">
-              <div class="compare-half">Before: interior</div>
-              <div class="compare-half">After: interior</div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 0; border: none; padding: 0; overflow: hidden;">
+              <img src="resources/lexus-interior.webp" alt="Detailed Lexus interior, dashboard and steering wheel" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="media-slot gallery-slot" data-reveal style="--i: 2">Interior, after: seats and trunk</div>
-            <div class="media-slot gallery-slot" data-reveal style="--i: 3">Exterior, after: full shine</div>
-            <div class="media-slot gallery-slot gallery-slot-compare" data-reveal style="--i: 4">
-              <div class="compare-half">Before: exterior</div>
-              <div class="compare-half">After: exterior</div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 1; border: none; padding: 0; overflow: hidden;">
+              <img src="resources/hundai-after.webp" alt="Clean Hyundai interior and dashboard, after detailing" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <div class="media-slot gallery-slot" data-reveal style="--i: 5">Exterior, after: wheels and tires</div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 2; border: none; padding: 0; overflow: hidden;">
+              <img src="resources/genisis-wheel.webp" alt="Detailed interior seats, after cleaning" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 3; border: none; padding: 0; overflow: hidden;">
+              <img src="resources/xm5-exterior.webp" alt="BMW M8 exterior, after detailing, full shine" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 4; border: none; padding: 0; overflow: hidden;">
+              <img src="resources/dbx-exterior.webp" alt="Aston Martin DBX exterior, after detailing" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 5; border: none; padding: 0; overflow: hidden;">
+              <img src="resources/c7-exterior.webp" alt="Corvette exterior, after detailing, wheels and shine" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
           </div>
         </div>
       </section>
@@ -765,7 +752,7 @@ body.reveal-armed [data-reveal].reveal-in {
       <section class="section" id="reviews" aria-labelledby="reviews-title">
         <div class="section-inner">
           <p class="section-eyebrow">What customers say</p>
-          <h2 class="section-title" id="reviews-title">Rated 5.0 from 34+ Google reviews</h2>
+          <h2 class="section-title" id="reviews-title">Rated 5.0 from 38+ Google reviews</h2>
           <div class="reviews-grid">
             <div class="review-box" data-reveal style="--i: 0">
               <div class="review-info">
@@ -871,17 +858,19 @@ body.reveal-armed [data-reveal].reveal-in {
           <p class="section-eyebrow">Where we work</p>
           <h2 class="section-title" id="areas-title">Serving Chandler and nearby</h2>
           <div class="areas-list">
+            <span class="area-chip">Phoenix</span>
             <span class="area-chip">Chandler</span>
-            <span class="area-chip">Gilbert</span>
-            <span class="area-chip">Guadalupe</span>
             <span class="area-chip">Mesa</span>
-            <span class="area-chip">Ahwatukee</span>
-            <span class="area-chip">Queen Creek</span>
+            <span class="area-chip">Gilbert</span>
             <span class="area-chip">Scottsdale</span>
-            <span class="area-chip">Paradise Valley</span>
+            <span class="area-chip">Tempe</span>
+            <span class="area-chip">Ahwatukee</span>
+            <span class="area-chip">Guadalupe</span>
+            <span class="area-chip">Queen Creek</span>
             <span class="area-chip">San Tan Valley</span>
-            <span class="area-chip">Fountain Hills</span>
+            <span class="area-chip">Paradise Valley</span>
             <span class="area-chip">Glendale</span>
+            <span class="area-chip">Fountain Hills</span>
             <span class="area-chip">Tolleson</span>
             <span class="area-chip">Rio Verde</span>
             <span class="area-chip">Goodyear</span>
@@ -941,11 +930,6 @@ body.reveal-armed [data-reveal].reveal-in {
     </main>
 
     <footer class="section-footer">
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="#pricing">Pricing</a>
-        <a href="contact.html">Contact</a>
-      </div>
       <p class="footer-phone">(480) 799-7248 · Chandler, AZ</p>
       <p class="footer-copy">© 2026 Clean Shine Detailing. All rights reserved</p>
     </footer>
