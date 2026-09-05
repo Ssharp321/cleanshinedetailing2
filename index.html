@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Google Tag Manager -->
@@ -15,6 +15,8 @@
         'phone_conversion_number': '(480) 799-7248'
       });
     </script>
+    <link rel="preload" as="image" href="resources/hero.webp">
+     <meta name="description" content="Mobile car detailing in Chandler AZ. We come to your home or office. 5-star rated on Google. No deposit — pay when done. Get a free quote today.">
     <link rel="icon" type="image/png" href="resources/main-logo-cropped.webp">
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,219 +26,520 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
     </noscript>
-    <link rel="stylesheet" href="index.css">
-    <title>Arizona Car Detailing - Clean Shine Detailing</title>
-</head>
-<body>
+    <title>Chandler Car Detailing - Clean Shine Detailing</title>
+    <style>
+:root {
+    /* Colors */
+   --accent: #44B5EE;
+   --accent-light: #a2daf6;
+   --text: #000000;
+   --text-light: #ffffff;
+   --bg: #F2F2F2;
+   --bg-dark: #E6E6E6;
+   --bg-light: #FFFFFF;
+   --text-muted: #4D4D4D;
+
+    /* Font */
+   --font: 'DM Sans', sans-serif;
+
+   /* Text sizes */
+   --fs-h1: 36px;
+   --fs-h2: 24px;
+   --fs-body: 16px;
+   --fs-small: 14px;
+
+   /* Padding */
+   --side-padding: 24px;
+   --section-padding: 40px;
+
+   /* Flex Direction */
+   --flex-direction: column;
+} 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  margin: 0; 
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  position: sticky;
+  background-color: var(--bg-light);
+  align-items: center;
+  padding: 20px var(--side-padding);
+  width: 100%;
+  height: 100px;
+  top: 0;
+  z-index: 100;
+  justify-content: space-between;
+  margin: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.main-logo {
+  height: 100%;
+}
+.main-logo img{
+  height: 100%;
+}
+.desktop-img {
+  display: none;
+}
+.mobile-img {
+  display: block;
+}
+.ctas {
+  display: flex;
+  gap: 12px;
+}
+
+.cta-phone {
+  height: auto;
+  gap: 8px;
+  display: flex;
+  background-color: var(--bg-dark);
+  align-items: center;
+  justify-content: center; 
+  padding: 16px 24px; 
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+.cta-phone img {
+  height: 18px;
+}
+.cta-form {
+  height: auto;
+  display: flex;
+  background-color: var(--accent);
+  align-items: center;
+  justify-content: center; 
+  padding: 16px 24px; 
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+}
+.cta-form-nav {
+  display: none;
+}
+.section-hero {
+  display: flex;
+  flex-direction: var(--flex-direction);
+  margin: 0;
+  width: 100%;
+  padding: var(--section-padding) var(--side-padding);;
+  height: auto;
+  background-color: var(--bg);
+  align-items: center;
+}
+.hero-txt {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 100%;
+  justify-content: center;
+  align-items: start;
+  gap: 12px;
+}
+.google-reviews-hero {
+  height: 40px;
+}
+.hero-img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+}
+.hero-img img{
+  width: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+.section-reviews {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+  padding: var(--section-padding) var(--side-padding);;
+  background-color: var(--bg-dark);
+  align-items: center;
+  gap: 12px;
+}
+.review-box {
+  background-color: var(--bg-light);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+.review-info {
+  display: flex;
+  height: 40px;
+  gap: 8px;
+}
+.review-stars-name {
+  height: 40px;
+}
+.review-stars-name img {
+  height: 20px;
+}
+.review-google-logo {
+  height: 40px;
+  margin-left: auto;
+}
+.review-profile-picture {
+  height: 40px;
+  width: 40px;
+}
+.section-pricing {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  padding: var(--section-padding) var(--side-padding);;
+  background-color: var(--bg-dark);
+  align-items: center;
+  justify-content: center;
+}
+.pricing-box {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  padding: 28px;
+  background-color: var(--bg-light);
+  border-radius: 20px;
+  gap: 40px;
+}
+.pricing-tiers {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
+.pricing-heading-text{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pricing-headline {
+ font-size: 2em; 
+}
+.pricing-subtext {
+  color: var(--text-muted);
+}
+.pricing-tier-box {
+  width: 100%;
+  border: 1.5px solid var(--bg-dark);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+}
+.pricing-tier-box-highlighted {
+  border: 2px solid var(--accent);
+}
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--bg-light);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.pricing-quote-cta {
+  display: flex;
+  background-color: var(--accent);
+  width: 100%;
+  color: var(--text-light);
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 8px;
+  border-radius: 12px;
+}
+.pricing-quote-cta img {
+  height: 20px;
+}
+.no-spam-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+.no-spam-text img{
+  height: 16px;
+}
+.section-form {
+  display: flex;
+  width: 100%;
+  padding: var(--section-padding) var(--side-padding);
+  background-color: var(--bg-dark);
+  align-items: center;
+  justify-content: center;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 440px;
+  padding: 32px;
+  background-color: var(--bg-light);
+  border-radius: 20px;
+}
+
+.form-eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-headline {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.form-subtext {
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.form-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--bg-dark);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.form-input-wrap img {
+  height: 16px;
+  opacity: 0.6;
+}
+.form-input-wrap input {
+  border: none;
+  outline: none;
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  width: 100%;
+  background: transparent;
+}
+.form-submit {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  margin-top: 8px;
+}
+.form-submit img{
+  height: 20px;
+}
+.form-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  margin-top: 14px;
+}
+.form-trust img {
+  height: 12px;
+}
+.section-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-muted);
+  color: var(--text-light);
+  padding: var(--section-padding) var(--side-padding);
+}
+@media (min-width: 550px) {
+  .cta-form-nav {
+    display: flex;
+  }
+}
+@media (min-width: 900px) {
+  .section-hero {
+    height: 75vh;
+  }
+  .section-reviews {
+    flex-direction: row;
+  }
+  .hero-img img{
+    height: 100%;
+    width: auto;
+  }
+  .desktop-img {
+    display: block;
+  }
+  .mobile-img {
+    display: none;
+  }
+  .pricing-tiers {
+    flex-direction: row;
+  }
+  :root {
+    --side-padding: 48px;
+    --flex-direction: row;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --side-padding: 64px;
+  }
+}
+    </style>
+  </head>
+  <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2KM3ZD"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <nav>
-      <a href="index.html" class="main-logo">
-        <img src="resources/main-logo.png" alt="Clean Shine Detailing Logo" class="desktop-img">
-        <img src="resources/main-logo-cropped.webp" alt="Clean Shine Detailing Logo" class="mobile-img">
+      <a class="main-logo">
+        <img src="resources/main-logo.png" alt="Clean Shine Detailing Logo" class="desktop-img" width="200" height="60">
+        <img src="resources/main-logo-cropped.webp" alt="Clean Shine Detailing Logo" class="mobile-img" width="60" height="60">
       </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="contact.html">Contact</a>
-      </div>
       <div class="ctas">
         <a href="tel:+14807997248" class="cta-phone">
-          <img src="resources/phone.png" alt="Phone Clipart">
+          <img src="resources/phone.png" alt="Phone Clipart" width="18" height="18">
           (480) 799-7248
         </a>
-        <a href="pricing.html" class="cta-form cta-form-nav">
-          Book my detail
+        <a href="#quote" class="cta-form cta-form-nav">
+          Get my free quote
         </a>
       </div>
     </nav>
     <section class="section-hero">
       <div class="hero-txt">
-        <img src="resources/google-stars-horizontal.png" style="max-width: 320px;" fetchpriority=high alt="5 star reviews on google" class="google-reviews-hero">
-        <h1 class="mvp">Arizona car detailing - Make your car shine like new.</h1>
-        <p class="mvp-subtext">Rated 5 stars on Google. Professional mobile car detailing serving Chandler, Scottsdale, Gilbert, Mesa, and nearby areas we come to your home or office and detail your car inside and out so it feels showroom ready again.</p>
+        <img src="resources/google-stars-horizontal.png" style="max-width: 320px;" fetchpriority="high" alt="5 star reviews on google" class="google-reviews-hero" width="320" height="40">
+        <h1 class="mvp">Chandler car detailing - Make your car shine like new.</h1>
+        <p class="mvp-subtext">Rated 5 stars on Google. We come to your home in Chandler and detail your car inside and out so it feels showroom ready again.</p>
         <div class="ctas">
           <a href="tel:+14807997248" class="cta-phone">
-          <img src="resources/phone.png" alt="Phone Clipart">
+          <img src="resources/phone.png" alt="Phone Clipart" width="18" height="18">
           (480) 799-7248
           </a>
-          <a href="pricing.html" class="cta-form">
-            Book my detail
+          <a href="#quote" class="cta-form">
+            Get my free quote
           </a>
         </div>
       </div>
       <div class="hero-img">
-        <img src="resources/hero.webp" fetchpriority="high" alt="">
+        <img src="resources/hero.webp" fetchpriority="high" alt="Car detailing in Chandler AZ" width="1200" height="800">
       </div>
     </section>
-    <section class="section-reviews">
+    <section class="section-reviews" id="reviews">
       <div class="review-box">
         <div class="review-info">
-          <img src="resources/paul-profile.png" alt="" class="review-profile-picture">
+          <img src="resources/paul-profile.png" alt="Paul B" class="review-profile-picture" width="40" height="40" loading="lazy">
           <div class="review-stars-name">
             <p>Paul B</p>
-            <img src="resources/stars.png" alt="">
+            <img src="resources/stars.png" alt="5 stars" width="100" height="20" loading="lazy">
           </div>
-          <img src="resources/google-review-logo.webp" alt="" class="review-google-logo">
+          <img src="resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
         </div>
         <p>Jordan spent hours cleaning every millimeter of our Lexus. It was the most precise detailing I've ever had. When he finished, it looked so nice I thought it was someone else's car. Additionally, Jordan is both polite and careful. I won't hesitate to use him again.</p>
       </div>
       <div class="review-box">
         <div class="review-info">
-          <img src="resources/jessica-profile.png" alt="">
+          <img src="resources/jessica-profile.png" alt="Jessica Carney" width="40" height="40" loading="lazy">
           <div class="review-stars-name">
             <p>Jessica Carney</p>
-            <img src="resources/stars.png" alt="">
+            <img src="resources/stars.png" alt="5 stars" width="100" height="20" loading="lazy">
           </div>
-          <img src="resources/google-review-logo.webp" alt="" class="review-google-logo">
+          <img src="resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
         </div>
         <p>Jordan did a fantastic job!! This young man has incredible work ethic, and takes pride in his job and it shows. I couldn't be happier with the outcome of my car, it now looks as good as it did when I took it home from the dealership!! Great work Jordan!</p>
       </div>
       <div class="review-box">
         <div class="review-info">
-          <img src="resources/sam-profile.png" alt="">
+          <img src="resources/sam-profile.png" alt="Sam Groove" width="40" height="40" loading="lazy">
           <div class="review-stars-name">
             <p>Sam Groove</p>
-            <img src="resources/stars.png" alt="">
+            <img src="resources/stars.png" alt="5 stars" width="100" height="20" loading="lazy">
           </div>
-          <img src="resources/google-review-logo.webp" alt="" class="review-google-logo">
+          <img src="resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
         </div>
         <p>Jordan came through for me last minute on a Saturday morning and did a fantastic job. Will be using their services again in the future. Support your local businesses!</p>
       </div>
     </section>
-    <section class="section-services">
-        <div class="service-box">
-            <img src="resources/mobile-detailing.png" alt="">
-            <h3>Mobile Detailing</h3>
-            <p>We come to your home or office anywhere in the Phoenix area and detail your car the right way inside and out, top to bottom. No drop-off, no waiting around. Just your car looking and feeling the way it should.</p>
-            <a href="pricing.html" class="cta-form">View Pricing</a>
-        </div>
-        <div class="service-box">
-            <img src="resources/ceramic-coating.png" alt="">
-            <h3>Ceramic Coating</h3>
-            <p>Ceramic coatings are a durable, long lasting form of paint protection that can be applied to your vehicle's clear coat finish. These materials provide more gloss than waxes and sealants while also providing an additional layer to better protect your cars paint and clear coat.</p>
-            <a href="pricing.html" class="cta-form">View Pricing</a>
-        </div>
-        <div class="service-box">
-            <img src="resources/paint-correction.png" alt="">
-            <h3>Paint Correction</h3>
-            <p>Paint correction is a process that removes contaminants, swirls and scratches, oxidation from paint using a buffer to achieve glossy appearance with no defects left behind, paired correctly this treatment leaves vehicles looking as good from every angle!</p>
-            <a href="pricing.html" class="cta-form">View Pricing</a>
-        </div>
-    </section>
-    <section class="section-pricing">
+    <section class="section-pricing" id="pricing">
       <div class="pricing-box">
-        <div class="pricing-text">
-          <p class="starting-label">Starting at</p>
-          <p class="price">$198</p>
-          <p class="disclaimer">*Pricing vary based on size of vehicle</p>
-          <a  class="cta-form" href="pricing.html">View Pricing</a>
+        <div class="pricing-heading-text">
+          <p style="color: var(--accent);">Transparent pricing</p>
+          <h2 class="pricing-headline">Starting at <span style="color: var(--accent);">$118</span></h2>
+          <p class="pricing-subtext">Price varies by vehicle size. No hidden fees.</p>
         </div>
-        <div class="pricing-column">
-          <h3>Interior Detail</h3>
-          <li><img src="resources/chackmark.png" alt="">Spotless vaccum</li>
-          <li><img src="resources/chackmark.png" alt="">Plastic cleaning</li>
-          <li><img src="resources/chackmark.png" alt="">Leather cleaning</li>
-          <li><img src="resources/chackmark.png" alt="">Trash removal</li>
-          <li><img src="resources/chackmark.png" alt="">Plastic/Leather protection</li>
-          <li><img src="resources/chackmark.png" alt="">Floor mat cleaning</li>
-          <li><img src="resources/chackmark.png" alt="">Door jam cleaning</li>
-          <li><img src="resources/chackmark.png" alt="">Streak free windows</li>
-          <li><img src="resources/chackmark.png" alt="">Trunk cleaning</li>
+        <div class="pricing-tiers">
+          <div class="pricing-tier-box">
+            <h3>Outside only</h3>
+            <p>$118+</p>
+            <p>Hand wash, wheels, windows, sealant, decontamination, etc.</p>
+          </div>
+          <div class="pricing-tier-box pricing-tier-box-highlighted">
+            <span class="popular-badge">Most Popular</span>
+            <h3>Full detail</h3>
+            <p>$278+</p>
+            <p>Interior + exterior, steam clean, spray wax, etc.</p>
+          </div>
+          <div class="pricing-tier-box">
+            <h3>Inside only</h3>
+            <p>$198+</p>
+            <p>Vacuum, wipe down, leather, windows, trunk, etc.</p>
+          </div>
         </div>
-        <div class="pricing-column">
-          <h3>Exterior Wash</h3>
-          <li><img src="resources/chackmark.png" alt=""><p>Hand wash</p></li>
-          <li><img src="resources/chackmark.png" alt=""><p>Wheel/Tire clean</p></li>
-          <li><img src="resources/chackmark.png" alt=""><p>Streak free windows</p></li>
-          <li><img src="resources/chackmark.png" alt=""><p>Tire shine</p></li>
-          <li><img src="resources/chackmark.png" alt=""><p>Spray sealant</p></li>
+        <div style="width: 100%; display: flex; flex-direction: column; gap: 12px;">
+          <a href="#quote" class="pricing-quote-cta">
+            Get my quote
+            <img src="resources/arrow.png" alt="arrow" width="20" height="20" loading="lazy">
+          </a>
+          <p class="no-spam-text">
+            <img src="resources/lock.png" alt="lock" width="12" height="12" loading="lazy">
+            No spam. Just a quick call within the hour.
+          </p>
         </div>
-      </div>
-    </section>
-    <section class="section-banner-cta">
-      <h2>Book my detail today!</h2>
-      <a href="pricing.html" class="banner-cta">Book my detail</a>
-    </section>
-    <section class="section-service-areas">
-      <div class="service-area-box">
-        <h2 class="sa-title">Our service areas</h2>
-        <div class="sa-grid">
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Chandler</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">We serve all of Chandler including Ocotillo, Fulton Ranch, and downtown. Mobile detailing at your home or office - we come to you.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Ahwatukee</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Serving Ahwatukee Foothills and surrounding neighborhoods. Professional mobile detailing with no drop-off required.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Scottsdale</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">From Old Town to North Scottsdale, we detail cars across the entire Scottsdale area. Book online or call for same-week availability.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Queen Creek</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Proudly serving Queen Creek residents with professional mobile detailing. We bring everything we need directly to your driveway.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Paradise Valley</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">We serve Paradise Valley with the same care and attention we bring to every detail. Premium results without leaving your property.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Mesa</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Mobile detailing throughout Mesa and nearby communities. Interior, exterior, or full detail - we handle it all at your door.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Tempe</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Serving Tempe including areas near ASU and downtown. Fast, reliable mobile detailing that fits your schedule.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Gilbert</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Gilbert and surrounding areas covered. We come to your home or office and restore your car to showroom condition.</div>
-          </div>
-      
-      </div>
       </div>
     </section>
     <section class="section-form" id="quote">
@@ -248,7 +551,7 @@
         <div class="form-field">
           <label for="name">Your name</label>
           <div class="form-input-wrap">
-            <img src="resources/person.png" alt="">
+            <img src="resources/person.png" alt="" width="20" height="20">
             <input type="text" id="name" name="name" placeholder="Jake Thomson" required>
           </div> 
         </div>
@@ -256,117 +559,40 @@
         <div class="form-field">
           <label for="phone">Phone number</label>
           <div class="form-input-wrap">
-            <img src="resources/phone-accent.png" alt="">
+            <img src="resources/phone-accent.png" alt="" width="20" height="20">
             <input type="tel" id="phone" name="phone" placeholder="(480) 555-0192" required>
           </div>
         </div>
 
         <button type="submit" class="cta-form form-submit">
           Get my quote
-          <img src="resources/arrow.png" alt="">
+          <img src="resources/arrow.png" alt="" width="20" height="20">
         </button>
         <p class="form-trust">
-          <img src="resources/lock.png" alt="">
+          <img src="resources/lock.png" alt="" width="12" height="12">
           No spam. Just a quick call.
         </p>
       </form>
     </section>
-    <section class="section-service-areas">
-      <div class="service-area-box">
-        <h2 class="sa-title">Frequently asked questions</h2>
-        <div class="sa-grid">
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Do I need to provide water/power?</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">No - we bring water and all professional equipment. All you need to do is provide access to your vehicle and a power source.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Do you require a deposit?</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">No deposit required to book. Payment is collected after the job is complete and you're happy with the results.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">How long does a detail take?</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">An interior detail typically takes 1.5-2 hours. A full interior + exterior detail usually takes 2-4 hours depending on vehicle size and condition. We'll give you an accurate estimate when you book.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">What forms of payment do you accept?</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">We accept all major credit and debit cards, cash, and Zelle. Payment is collected after the service is complete.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Do you come to me?</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Yes - that's the whole point. We come to your home, office, or wherever your car is parked. No drop-off required, no waiting at a shop.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">Do you offer maintenance plans?</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Yes - monthly, bi-monthly, and quarterly plans with locked-in lower rates and priority booking. No contracts, cancel anytime.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">How do I book?</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Book online using the button at the top of the page, or call/text us directly at (480) 799-7248. We typically have availability within the same week.</div>
-          </div>
-      
-          <div class="sa-item">
-            <div class="sa-header" onclick="toggleArea(this)">
-              <span class="sa-city">What types of vehicles do you service?</span>
-              <img src="resources/arrow.png" alt="" class="sa-icon">
-            </div>
-            <div class="sa-divider"></div>
-            <div class="sa-body">Coupes, sedans, SUVs, trucks, and vans. Pricing varies by vehicle size. Contact us for a custom quote on oversized vehicles or specialty cars.</div>
-          </div>
-        
-        </div>
-      </div>
-    </section>
     <section class="section-footer">
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="contact.html">Contact</a>
-      </div>
       © 2026 Clean Shine Detailing. All rights reserved
     </section>
     <script>
-      function toggleArea(header) {
-        const divider = header.nextElementSibling;
-        const body = divider.nextElementSibling;
-        const icon = header.querySelector('.sa-icon');
-        body.classList.toggle('open');
-        icon.classList.toggle('open');
-        divider.classList.toggle('open');
-      }
+      // Capture URL tracking params and inject as hidden fields
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const trackingParams = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_keyword', 'utm_content'];
+        trackingParams.forEach(function(param) {
+          const value = params.get(param);
+          if (value) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = param;
+            input.value = value;
+            document.getElementById('quoteForm').appendChild(input);
+          }
+        });
+      })();
 
       const quoteForm = document.getElementById("quoteForm");
       quoteForm.addEventListener("submit", function (e) {
@@ -398,5 +624,5 @@
           });
       });
     </script>
-</body>
+  </body>
 </html>
