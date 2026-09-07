@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/resources/hero.webp" as="image" fetchpriority="high">
-    <meta name="description" content="Mobile car detailing in Chandler AZ. We come to your home or office. 5-star rated on Google. No deposit. Pay when done. Get a free quote today.">
+    <meta name="description" content="Mobile car detailing. We come to your home or office. 5-star rated on Google. No deposit. Pay when done. Get a free quote today.">
     <meta name="robots" content="noindex, follow">
     <link rel="icon" type="image/png" href="/resources/main-logo-cropped.webp">
-    <title>Chandler Car Detailing - Clean Shine Detailing</title>
+    <title>Mobile car detailing - Clean Shine Detailing</title>
     <style>
 @font-face {
   font-family: 'DM Sans';
@@ -60,8 +60,10 @@ html { scroll-behavior: smooth; }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
@@ -592,8 +594,8 @@ body.reveal-armed [data-reveal].reveal-in {
             <span class="dot" aria-hidden="true">·</span>
             <span>Chandler, AZ</span>
           </p>
-          <h1 class="hero-h1">Chandler car detailing - Make your car shine like new</h1>
-          <p class="hero-sub">Rated 5 stars on Google. We come to your home in Chandler and detail your car inside and out so it feels showroom ready again.</p>
+          <h1 class="hero-h1">Mobile car detailing that comes to you - Make your car shine like new</h1>
+          <p class="hero-sub">Rated 5 stars on Google. We come to your home in Chandler, Mesa, Gilbert, Tempe, and surrounding areas and detail your car inside and out so it feels showroom ready again.</p>
           <div class="ctas">
             <a href="tel:+14807997248" class="cta-phone" aria-label="Call Clean Shine Detailing at (480) 799-7248">
               <img src="/resources/phone.png" alt="" class="icon" width="18" height="18">
@@ -789,8 +791,8 @@ body.reveal-armed [data-reveal].reveal-in {
           <div class="jordan-text">
             <p class="section-eyebrow">Who’s showing up at your door</p>
             <h2 class="section-title" id="jordan-title">Meet Jordan</h2>
-            <p><span class="jordan-name">Hi, I’m Jordan</span>, owner of Clean Shine Detailing 38 five-star reviews and 100+ cars detailed in the Chandler area.</p>
-            <p>When you book with me, I'm the one who shows up and does the work, not a tech I hired last month. Same hands, same standard, every time</p>
+            <p><span class="jordan-name">Hi, I’m Jordan</span>, owner of Clean Shine Detailing. 38 five-star reviews and 100+ cars detailed in the East Valley.</p>
+            <p>When you book with me, I'm the one who shows up and does the work, not a tech I hired last month. Same hands, same standard, every time.</p>
           </div>
         </div>
       </section>
@@ -990,7 +992,7 @@ body.reveal-armed [data-reveal].reveal-in {
         const revealObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              if (entry.isIntersecting) {
+              if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
                 entry.target.classList.add('reveal-in');
                 revealObserver.unobserve(entry.target);
               }
@@ -1064,10 +1066,12 @@ body.reveal-armed [data-reveal].reveal-in {
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WQ2KM3ZD');</script>
     <!-- End Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691480552"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('config', 'AW-17691480552/FUc7CPyHicccEOij-vNB', {
+      gtag('js', new Date());
+      gtag('config', 'AW-17691480552', {
         'phone_conversion_number': '(480) 799-7248'
       });
     </script>
