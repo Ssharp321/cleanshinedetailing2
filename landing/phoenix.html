@@ -490,6 +490,25 @@ body.reveal-armed [data-reveal].reveal-in {
   margin-top: 12px;
 }
 
+/* ---------- BOOKING POPUP ---------- */
+.booking-modal {
+  border: none; padding: 0; background: transparent;
+  width: calc(100% - 32px); max-width: 440px;
+  margin: auto;
+}
+.booking-modal::backdrop { background: rgba(0, 0, 0, 0.55); }
+.booking-modal[open] { animation: hero-in 300ms var(--ease-out-quint) both; }
+.booking-modal .form-box { position: relative; }
+.modal-close {
+  position: absolute; top: 12px; right: 12px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: none; background: var(--bg); color: var(--text);
+  font-size: 22px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  touch-action: manipulation;
+}
+.modal-close:hover { background: var(--bg-dark); }
+
 /* ---------- FOOTER ---------- */
 .section-footer {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -933,6 +952,46 @@ body.reveal-armed [data-reveal].reveal-in {
       <a href="#pricing" class="cta-form">Book now</a>
     </div>
 
+    <!-- BOOKING POPUP: collects name + phone before sending to Square -->
+    <dialog class="booking-modal" id="bookingModal" aria-labelledby="booking-title">
+      <form action="https://formspree.io/f/mnnwgyag" method="POST" class="form-box" id="bookingForm">
+        <button type="button" class="modal-close" id="bookingClose" aria-label="Close">&times;</button>
+        <p class="form-eyebrow">Almost there</p>
+        <h2 class="form-headline" id="booking-title">Book an appointment</h2>
+        <p class="form-subtext">Verify your phone number below to get started.</p>
+
+        <input type="hidden" name="_subject" id="bookingSubject" value="Booking started">
+        <input type="hidden" name="package" id="bookingPackage">
+        <input type="hidden" name="vehicle" id="bookingVehicle">
+        <input type="hidden" name="page" value="landing/phoenix">
+
+        <div class="form-field">
+          <label for="bk-name">Your name</label>
+          <div class="form-input-wrap">
+            <img src="/resources/person.png" alt="" class="icon" width="20" height="20" loading="lazy">
+            <input type="text" id="bk-name" name="name" placeholder="Jake Thomson" autocomplete="name" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="bk-phone">Phone number</label>
+          <div class="form-input-wrap">
+            <img src="/resources/phone-accent.png" alt="" class="icon" width="20" height="20" loading="lazy">
+            <input type="tel" id="bk-phone" name="phone" placeholder="(480) 555-0192" autocomplete="tel" required>
+          </div>
+        </div>
+
+        <button type="submit" class="cta-form form-submit" aria-live="polite">
+          Continue to booking
+          <img src="/resources/arrow.png" alt="" class="icon" width="20" height="20" loading="lazy">
+        </button>
+        <p class="form-trust">
+          <img src="/resources/lock.png" alt="" width="12" height="12" loading="lazy">
+          &nbsp;No spam. Only used for your booking.
+        </p>
+      </form>
+    </dialog>
+
     <script>
       // Vehicle-size pricing (matches pricing.html)
       const prices = {
@@ -1020,12 +1079,61 @@ body.reveal-armed [data-reveal].reveal-in {
         trackingParams.forEach(function(param) {
           const value = params.get(param);
           if (value) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = param;
-            input.value = value;
-            document.getElementById('quoteForm').appendChild(input);
+            ['quoteForm', 'bookingForm'].forEach(function(formId) {
+              const input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = param;
+              input.value = value;
+              document.getElementById(formId).appendChild(input);
+            });
           }
+        });
+      })();
+
+      // Booking popup: Square "Book now" buttons open a name + phone form first,
+      // then continue to Square. If the lead fails to send, still let them book.
+      (function () {
+        const modal = document.getElementById('bookingModal');
+        const form = document.getElementById('bookingForm');
+        if (!modal || typeof modal.showModal !== 'function') return;
+        let bookingUrl = null;
+
+        document.querySelectorAll('.pkg-book').forEach(function (link) {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            bookingUrl = link.href;
+            const pkgName = link.closest('.pkg').querySelector('.pkg-name').textContent.trim();
+            const vehicleBtn = document.querySelector('.vehicle-btn[aria-pressed="true"] .v-name');
+            document.getElementById('bookingPackage').value = pkgName;
+            document.getElementById('bookingVehicle').value = vehicleBtn ? vehicleBtn.textContent.trim() : '';
+            document.getElementById('bookingSubject').value = 'Booking started: ' + pkgName + ' (Phoenix)';
+            modal.showModal();
+          });
+        });
+
+        document.getElementById('bookingClose').addEventListener('click', function () { modal.close(); });
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) modal.close();
+        });
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const submitBtn = form.querySelector('.form-submit');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'One sec…';
+          const controller = 'AbortController' in window ? new AbortController() : null;
+          const timer = controller ? window.setTimeout(function () { controller.abort(); }, 6000) : null;
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+            signal: controller ? controller.signal : undefined,
+          })
+            .catch(function () {})
+            .then(function () {
+              if (timer) window.clearTimeout(timer);
+              window.location.href = bookingUrl;
+            });
         });
       })();
 
