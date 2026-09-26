@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -1121,19 +1121,39 @@ body.reveal-armed [data-reveal].reveal-in {
           const submitBtn = form.querySelector('.form-submit');
           submitBtn.disabled = true;
           submitBtn.textContent = 'One sec…';
-          const controller = 'AbortController' in window ? new AbortController() : null;
-          const timer = controller ? window.setTimeout(function () { controller.abort(); }, 6000) : null;
+
+          // Go to Square once both the lead is sent and GTM has fired its tags.
+          // The safety timer covers ad blockers or a slow network.
+          let remaining = 2;
+          let left = false;
+          function goToSquare() {
+            if (left) return;
+            left = true;
+            window.location.href = bookingUrl;
+          }
+          function stepDone() {
+            remaining -= 1;
+            if (remaining <= 0) goToSquare();
+          }
+          window.setTimeout(goToSquare, 4000);
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'booking_form_submit',
+            booking_package: document.getElementById('bookingPackage').value,
+            booking_vehicle: document.getElementById('bookingVehicle').value,
+            booking_page: form.querySelector('input[name="page"]').value,
+            eventCallback: stepDone,
+            eventTimeout: 2000,
+          });
+
           fetch(form.action, {
             method: 'POST',
             body: new FormData(form),
             headers: { Accept: 'application/json' },
-            signal: controller ? controller.signal : undefined,
           })
             .catch(function () {})
-            .then(function () {
-              if (timer) window.clearTimeout(timer);
-              window.location.href = bookingUrl;
-            });
+            .then(stepDone);
         });
       })();
 
