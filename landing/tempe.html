@@ -3,22 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400&display=swap">
     <link rel="preload" href="/resources/hero.webp" as="image" fetchpriority="high">
     <meta name="description" content="Mobile car detailing in Tempe AZ. We come to your home or office. 5-star rated on Google. No deposit. Pay when done. Get a free quote today.">
     <meta name="robots" content="noindex, follow">
     <link rel="icon" type="image/png" href="/resources/main-logo-cropped.webp">
     <title>Tempe Car Detailing - Clean Shine Detailing</title>
     <style>
-@font-face {
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 100 1000;
-  font-display: optional;
-  src: url('/fonts/dm-sans.woff2') format('woff2-variations'),
-       url('/fonts/dm-sans.woff2') format('woff2');
-}
-
 :root {
   --accent: #44B5EE;
   --accent-dark: #1c7fb0;
@@ -203,8 +196,30 @@ p.hero-sub { font-size: var(--fs-body); color: var(--text-muted); max-width: 52c
   font-size: var(--fs-small);
   padding: 16px;
 }
-.hero-media { width: 100%; }
-.hero-media .media-slot { max-height: 380px; }
+/* Hero photo behind a dark blue overlay so the white text stays readable */
+.section-hero {
+  background-color: #0c2048;
+  background-image: linear-gradient(rgba(12, 32, 72, 0.82), rgba(12, 32, 72, 0.82)), url('/resources/hero.webp');
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+}
+.section-hero .trust-line { color: rgba(255, 255, 255, 0.9); }
+.section-hero .trust-line .dot { color: rgba(255, 255, 255, 0.4); }
+.section-hero p.hero-sub { color: rgba(255, 255, 255, 0.88); }
+.section-hero .hero-points li { color: var(--text-light); }
+.hero-form { width: 100%; display: flex; justify-content: center; }
+.hero-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.hero-points li { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.hero-points li::before {
+  content: '';
+  width: 20px; height: 20px; min-width: 20px; border-radius: 50%;
+  background: var(--accent-tint2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M3 7.5L5.5 10L11 5' stroke='%2344B5EE' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 @keyframes hero-in {
   from { opacity: 0; transform: translateY(14px); }
@@ -216,11 +231,7 @@ p.hero-sub { font-size: var(--fs-body); color: var(--text-muted); max-width: 52c
 .hero-txt > .trust-line { animation-delay: 0ms; }
 .hero-txt > .hero-h1 { animation-delay: 0ms; }
 .hero-txt > .hero-sub { animation-delay: 170ms; }
-.hero-txt > .ctas { animation-delay: 240ms; }
-.hero-media {
-  animation: hero-in 800ms var(--ease-out-quint) both;
-  animation-delay: 0ms;
-}
+.hero-txt > .hero-points { animation-delay: 240ms; }
 
 /* ---------- TRUST STRIP ---------- */
 .section-trust {
@@ -342,6 +353,26 @@ body.reveal-armed [data-reveal].reveal-in {
 }
 .pkg-price.price-updating { opacity: 0; transform: translateY(4px); }
 .pkg-price-note { font-size: 11px; color: var(--text-faint); margin-bottom: 16px; }
+.pkg-details { margin-bottom: 18px; border-top: 1px solid var(--border); }
+.pkg-details summary {
+  list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0 4px;
+  font-size: 14px; font-weight: 700; color: var(--accent-dark);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.pkg-details summary::-webkit-details-marker { display: none; }
+.pkg-details summary::after {
+  content: '';
+  width: 8px; height: 8px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 200ms var(--ease-out-quart);
+}
+.pkg-details[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.pkg-details .pkg-list:last-child { margin-bottom: 4px; }
+.pkg-details[open] summary { margin-bottom: 4px; }
 .pkg-book {
   display: block; text-align: center; text-decoration: none;
   margin-top: auto; padding: 12px; background: var(--accent); color: #fff;
@@ -370,31 +401,70 @@ body.reveal-armed [data-reveal].reveal-in {
 }
 
 /* ---------- REVIEWS ---------- */
-.reviews-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-.review-box {
-  background-color: var(--bg-light);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.reviews-grid { list-style: none; display: grid; grid-template-columns: 1fr; gap: 28px; }
+.reviews-grid > li { display: flex; flex-direction: column; }
+.reviews-grid > li[hidden] { display: none; }
+/* Two reviews per row on phones and tablets (desktop rules further down switch to 3). */
+.reviews-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.review-bubble {
+  flex: 1;
+  position: relative;
+  background: var(--bg);
+  border-radius: 24px;
+  padding: 22px 24px 20px;
+  margin-bottom: 18px;
 }
-.review-info { display: flex; align-items: center; gap: 10px; }
-.review-box > p { text-wrap: pretty; }
-.review-avatar {
+.review-bubble::after {
+  content: '';
+  position: absolute;
+  left: 28px;
+  bottom: -12px;
+  border-width: 12px 12px 0 0;
+  border-style: solid;
+  border-color: var(--bg) transparent transparent transparent;
+}
+.review-bubble .stars { color: var(--google-star); font-size: 18px; letter-spacing: 2px; line-height: 1; margin-bottom: 8px; }
+.review-text {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.review-bubble.expanded .review-text { -webkit-line-clamp: unset; line-clamp: unset; display: block; }
+.review-more {
+  background: none; border: none; padding: 0; margin-top: 4px;
+  font-family: var(--font); font-size: 14px; color: var(--text-faint);
+  cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+}
+.review-more[hidden] { display: none; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-author img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.review-initial {
   width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-  object-fit: cover;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 18px; font-weight: 600;
 }
-.review-stars { color: var(--google-star); font-size: 18px; letter-spacing: 2px; }
-.review-google-logo { margin-left: auto; width: 40px; height: 40px; }
-.reviews-more { margin-top: 16px; }
-.reviews-more a { color: var(--accent-dark); font-weight: 600; text-decoration: none; font-size: 14px; }
+.review-author-name { font-size: 15px; font-weight: 700; }
+.review-author-src { font-size: 13px; color: var(--text-faint); }
+.review-author-src .g { font-weight: 700; }
+.review-author-src .g b:nth-child(1), .review-author-src .g b:nth-child(4) { color: #4285F4; }
+.review-author-src .g b:nth-child(2), .review-author-src .g b:nth-child(6) { color: #EA4335; }
+.review-author-src .g b:nth-child(3) { color: #FBBC05; }
+.review-author-src .g b:nth-child(5) { color: #34A853; }
+.reviews-load { display: flex; justify-content: center; margin-top: 28px; }
+.reviews-load-btn { border: none; font-family: var(--font); cursor: pointer; }
+.reviews-load-btn[hidden] { display: none; }
+.reviews-more { margin-top: 18px; text-align: center; }
+.reviews-more a { color: var(--accent-dark); font-weight: 700; text-decoration: none; font-size: 15px; }
 .reviews-more a:hover { text-decoration: underline; }
 
 /* ---------- JORDAN ---------- */
 .jordan-wrap { display: flex; flex-direction: column; gap: 20px; align-items: start; }
-.jordan-photo { width: 140px; aspect-ratio: 1 / 1; border-radius: 50%; flex-shrink: 0; }
+.jordan-photo { width: 140px; height: 140px; min-height: 140px; border-radius: 50%; flex-shrink: 0; overflow: hidden; }
 .jordan-photo .media-slot { border-radius: 50%; }
 .jordan-text p { font-size: var(--fs-body); color: var(--text-muted); margin-bottom: 10px; max-width: 60ch; text-wrap: pretty; }
 .jordan-text p:last-child { margin-bottom: 0; }
@@ -446,41 +516,111 @@ body.reveal-armed [data-reveal].reveal-in {
 }
 .section-final .section-eyebrow { color: var(--accent); }
 .section-final h2 { font-size: var(--fs-h2); margin-bottom: 20px; text-wrap: balance; }
-.final-ctas { display: flex; flex-direction: column; gap: 12px; max-width: 360px; margin: 0 auto; }
-.final-ctas .cta-form, .final-ctas .cta-phone { justify-content: center; width: 100%; }
-.final-ctas .cta-phone { background: rgba(255,255,255,0.12); color: var(--text-light); }
-.final-fallback { margin-top: 16px; font-size: 13px; }
-.final-fallback a { color: var(--text-light); text-decoration: underline; }
-.final-fallback a:hover { opacity: 0.8; }
+.final-trust { margin-top: 18px; font-size: 14px; opacity: 0.85; }
 
-/* ---------- CALLBACK FORM (fallback) ---------- */
-.section-form {
-  display: flex; width: 100%; padding: var(--section-padding) var(--side-padding);
-  background-color: var(--bg); align-items: center; justify-content: center;
-  scroll-margin-top: 100px;
+/* ---------- CTA PAIR (free quote + call), repeated in every section ---------- */
+.section-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 24px; margin-top: 32px; }
+.section-ctas.left { justify-content: flex-start; }
+.btn-quote, .btn-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  max-width: 100%;
+  padding: 17px 20px;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  touch-action: manipulation;
+  transition: transform 150ms var(--ease-out-quart), filter 150ms var(--ease-out-quart);
 }
-.form-box {
-  display: flex; flex-direction: column; width: 100%; max-width: 440px;
-  padding: 32px; background-color: var(--bg-light); border-radius: 20px;
+.btn-quote { background: linear-gradient(var(--accent), var(--accent-dark)); color: var(--text-light); }
+.btn-call { background: var(--text); color: var(--accent); }
+.btn-quote:hover, .btn-call:hover { filter: brightness(1.08); }
+.btn-quote:active, .btn-call:active { transform: scale(0.98); }
+.section-final .btn-call { background: var(--bg-light); color: var(--text); }
+
+/* ---------- QUOTE FORM (hero) ---------- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.estimate-card {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(#ffffff, #f1f1f1);
+  color: var(--text);
+  border-radius: 16px;
   border: 1.5px solid var(--border);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  scroll-margin-top: 110px;
+  animation: hero-in 800ms var(--ease-out-quint) both;
+  animation-delay: 100ms;
 }
-.form-eyebrow { font-size: var(--fs-small); font-weight: 600; color: var(--accent-dark); margin-bottom: 6px; }
-.form-headline { font-size: var(--fs-h2); margin-bottom: 4px; }
-.form-subtext { font-size: var(--fs-body); color: var(--text-muted); margin-bottom: 24px; }
-.form-field { margin-bottom: 16px; }
-.form-field label { display: block; font-size: var(--fs-small); font-weight: 600; margin-bottom: 6px; }
-.form-input-wrap {
-  display: flex; align-items: center; gap: 8px;
-  border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 14px;
+.estimate-title {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  padding: 18px 20px 14px;
+  margin: 0 16px;
+  border-bottom: 1px solid #d6d6d6;
 }
-.form-input-wrap:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-tint); }
-.form-input-wrap input {
-  border: none; outline: none; font-family: var(--font); font-size: var(--fs-body);
-  width: 100%; background: transparent; min-height: 24px;
+.estimate-form { padding: 16px 26px 22px; }
+.estimate-form fieldset { border: none; margin-bottom: 14px; }
+.estimate-form legend { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.legend-optional { font-weight: 400; color: var(--text-faint); font-size: 14px; }
+.check-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 12px; }
+.check-row { display: flex; align-items: center; gap: 8px; font-size: 15px; padding: 4px 0; cursor: pointer; }
+.check-row input { width: 17px; height: 17px; accent-color: var(--accent-dark); cursor: pointer; }
+.field-row { margin-bottom: 14px; }
+.field input {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 16px;
+  padding: 10px 12px;
+  border: 1px solid #bdbdbd;
+  background: var(--bg-light);
+  color: var(--text);
+  border-radius: 0;
+  min-height: 44px;
 }
-.form-submit { margin-top: 8px; transition: opacity 150ms var(--ease-out-quart); }
-.form-submit:disabled { opacity: 0.6; cursor: default; }
-.form-trust { display: flex; justify-content: center; font-size: var(--fs-small); color: var(--text-faint); margin-top: 14px; }
+.field input::placeholder { font-style: italic; color: #9a9a9a; }
+.field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-tint2); }
+.form-note { font-size: 14px; font-weight: 600; color: var(--accent-dark); margin: 2px 0 12px; }
+.estimate-form fieldset { margin-top: 2px; }
+/* Short review right under the submit button, to reassure at the moment of decision */
+.form-review {
+  display: flex; align-items: flex-start; gap: 12px;
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid #dedede;
+}
+.form-review img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.form-review-stars { color: var(--google-star); font-size: 13px; letter-spacing: 1px; line-height: 1; margin-bottom: 4px; }
+.form-review blockquote { font-size: 14px; font-style: italic; line-height: 1.45; color: var(--text); }
+.form-review figcaption { font-size: 12px; color: var(--text-faint); margin-top: 3px; }
+.estimate-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(var(--accent), var(--accent-dark));
+  color: var(--text-light);
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(28, 127, 176, 0.35);
+  touch-action: manipulation;
+  transition: transform 150ms var(--ease-out-quart), filter 150ms var(--ease-out-quart), opacity 150ms var(--ease-out-quart);
+}
+.estimate-submit:hover { filter: brightness(1.05); }
+.estimate-submit:active { transform: scale(0.98); }
+.estimate-submit:disabled { opacity: 0.6; cursor: default; }
 .form-error {
   color: #B3402E;
   background: #F6E4DF;
@@ -489,25 +629,6 @@ body.reveal-armed [data-reveal].reveal-in {
   border-radius: var(--radius-sm);
   margin-top: 12px;
 }
-
-/* ---------- BOOKING POPUP ---------- */
-.booking-modal {
-  border: none; padding: 0; background: transparent;
-  width: calc(100% - 32px); max-width: 440px;
-  margin: auto;
-}
-.booking-modal::backdrop { background: rgba(0, 0, 0, 0.55); }
-.booking-modal[open] { animation: hero-in 300ms var(--ease-out-quint) both; }
-.booking-modal .form-box { position: relative; }
-.modal-close {
-  position: absolute; top: 12px; right: 12px;
-  width: 40px; height: 40px; border-radius: 50%;
-  border: none; background: var(--bg); color: var(--text);
-  font-size: 22px; line-height: 1; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  touch-action: manipulation;
-}
-.modal-close:hover { background: var(--bg-dark); }
 
 /* ---------- FOOTER ---------- */
 .section-footer {
@@ -530,7 +651,17 @@ body.reveal-armed [data-reveal].reveal-in {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
   z-index: 200;
 }
-.mobile-cta-bar .cta-phone, .mobile-cta-bar .cta-form { flex: 1; padding: 14px 16px; }
+.mobile-cta-bar a {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px 12px;
+  border-radius: 8px;
+  font-size: 16px; font-weight: 700;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+.mobile-cta-bar .bar-call { background: var(--text); color: var(--accent); }
+.mobile-cta-bar .bar-quote { background: linear-gradient(var(--accent), var(--accent-dark)); color: var(--text-light); }
 
 /* ---------- RESPONSIVE ---------- */
 @media (min-width: 550px) {
@@ -547,23 +678,13 @@ body.reveal-armed [data-reveal].reveal-in {
   header { position: fixed; top: 0; left: 0; width: 100%; z-index: 900; }
   nav { position: static; }
   main { padding-top: 100px; }
-  .section-hero { flex-direction: row; min-height: 70vh; align-items: stretch; }
+  .section-hero {
+    flex-direction: row; align-items: center; gap: 56px;
+    padding-left: max(var(--side-padding), calc((100% - 1100px) / 2));
+    padding-right: max(var(--side-padding), calc((100% - 1100px) / 2));
+  }
   .hero-txt { width: auto; flex: 1 1 0; min-width: 0; justify-content: center; }
-  .hero-media {
-    width: auto;
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .hero-media .media-slot {
-    width: auto;
-    height: 100%;
-    max-height: 60vh;
-    max-width: 100%;
-  }
+  .hero-form { width: auto; flex: 0 0 480px; }
   .desktop-img { display: block; }
   .mobile-img { display: none; }
   :root { --side-padding: 48px; --flex-direction: row; }
@@ -574,6 +695,18 @@ body.reveal-armed [data-reveal].reveal-in {
 }
 @media (min-width: 1200px) {
   :root { --side-padding: 64px; }
+}
+/* Compact review bubbles on phones (kept last so it overrides the base review styles) */@media (max-width: 699px) {
+  .reviews-grid { gap: 20px 12px; }
+  .review-bubble { padding: 14px 14px 12px; border-radius: 18px; margin-bottom: 14px; }
+  .review-bubble::after { left: 18px; }
+  .review-bubble .stars { font-size: 14px; letter-spacing: 1px; margin-bottom: 6px; }
+  .review-text { font-size: 13px; line-height: 1.5; -webkit-line-clamp: 6; line-clamp: 6; }
+  .review-more { font-size: 12px; }
+  .review-author { gap: 8px; }
+  .review-author img, .review-initial { width: 32px; height: 32px; font-size: 15px; }
+  .review-author-name { font-size: 13px; line-height: 1.25; }
+  .review-author-src { font-size: 12px; }
 }
     </style>
   </head>
@@ -598,7 +731,7 @@ body.reveal-armed [data-reveal].reveal-in {
             <img src="/resources/phone.png" alt="" class="icon" width="18" height="18">
             (480) 799-7248
           </a>
-          <a href="#pricing" class="cta-form cta-form-nav">Book my detail</a>
+          <a href="#quote" class="cta-form cta-form-nav">Get a free quote</a>
         </div>
       </nav>
     </header>
@@ -609,23 +742,65 @@ body.reveal-armed [data-reveal].reveal-in {
         <div class="hero-txt">
           <p class="trust-line">
             <span class="stars" aria-hidden="true">★★★★★</span>
-            <span>5.0 on Google (38+ reviews)</span>
+            <span>5.0 on Google (40 reviews)</span>
             <span class="dot" aria-hidden="true">·</span>
             <span>Tempe, AZ</span>
           </p>
           <h1 class="hero-h1">Mobile car detailing in Tempe - Make your car shine like new</h1>
           <p class="hero-sub">Rated 5 stars on Google. We come to your home in Tempe and detail your car inside and out so it feels showroom ready again.</p>
-          <div class="ctas">
-            <a href="tel:+14807997248" class="cta-phone" aria-label="Call Clean Shine Detailing at (480) 799-7248">
-              <img src="/resources/phone.png" alt="" class="icon" width="18" height="18">
-              (480) 799-7248
-            </a>
-            <a href="#pricing" class="cta-form">See my price &amp; book now</a>
-          </div>
+          <ul class="hero-points">
+            <li>We come to your home or office</li>
+            <li>Full details from $278, interior from $198</li>
+            <li>No deposit. Pay when you're happy.</li>
+          </ul>
         </div>
-        <div class="hero-media">
-          <div class="media-slot" style="aspect-ratio: 4/3; border: none; padding: 0;">
-            <img src="/resources/hero.webp" alt="Freshly detailed car exterior, showroom shine" width="800" height="600" fetchpriority="high" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
+        <div class="hero-form">
+          <div class="estimate-card" id="quote">
+            <h2 class="estimate-title">Get a Free Detail Estimate</h2>
+            <form action="https://formspree.io/f/mnnwgyag" method="POST" class="estimate-form" id="quoteForm">
+              <input type="hidden" name="_subject" value="Free quote request (Tempe)">
+              <input type="hidden" name="page" value="landing/tempe">
+              <input type="hidden" name="city" value="Tempe">
+
+              <div class="field-row field">
+                <label for="name" class="visually-hidden">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name*" autocomplete="name" required>
+              </div>
+              <div class="field-row field">
+                <label for="phone" class="visually-hidden">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number*" autocomplete="tel" required>
+              </div>
+
+              <fieldset>
+                <legend>Service(s) Interested In: <span class="legend-optional">(optional)</span></legend>
+                <div class="check-grid">
+                  <label class="check-row"><input type="checkbox" name="services" value="Full detail"> Full Detail</label>
+                  <label class="check-row"><input type="checkbox" name="services" value="Interior only"> Interior Only</label>
+                  <label class="check-row"><input type="checkbox" name="services" value="Exterior only"> Exterior Only</label>
+                  <label class="check-row"><input type="checkbox" name="services" value="Ceramic coating"> Ceramic Coating</label>
+                  <label class="check-row"><input type="checkbox" name="services" value="Paint correction"> Paint Correction</label>
+                  <label class="check-row"><input type="checkbox" name="services" value="Pet hair removal"> Pet Hair Removal</label>
+                </div>
+              </fieldset>
+
+              <div class="field-row field">
+                <label for="vehicle" class="visually-hidden">Vehicle (optional)</label>
+                <input type="text" id="vehicle" name="vehicle" placeholder="Vehicle, e.g. 2025 Acura MDX (optional)">
+              </div>
+              <p class="form-note">We'll get in touch shortly with your quote.</p>
+
+              <button type="submit" class="estimate-submit" aria-live="polite">Get My Free Quote</button>
+              <p class="form-error" id="formError" role="alert" hidden>Something went wrong sending your request. Please try again or call us at (480) 799-7248.</p>
+
+              <figure class="form-review">
+                <img src="/resources/jessica-profile.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="form-review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+                  <blockquote>"It now looks as good as it did when I took it home from the dealership!!"</blockquote>
+                  <figcaption>Jessica Carney, Google review</figcaption>
+                </div>
+              </figure>
+            </form>
           </div>
         </div>
       </section>
@@ -636,16 +811,16 @@ body.reveal-armed [data-reveal].reveal-in {
           <p class="trust-item" data-reveal style="--i: 0"><span class="check" aria-hidden="true"></span>No deposit, pay after</p>
           <p class="trust-item" data-reveal style="--i: 1"><span class="check" aria-hidden="true"></span>Same-week availability</p>
           <p class="trust-item" data-reveal style="--i: 2"><span class="check" aria-hidden="true"></span>Always Jordan, never a subcontractor</p>
-          <p class="trust-item" data-reveal style="--i: 3"><span class="check" aria-hidden="true"></span>Book online instantly</p>
+          <p class="trust-item" data-reveal style="--i: 3"><span class="check" aria-hidden="true"></span>Free quote in 30 seconds</p>
         </div>
       </section>
 
-      <!-- 3. INSTANT PRICE & BOOKING -->
+      <!-- 3. PRICING -->
       <section class="section" id="pricing" aria-labelledby="pricing-title">
         <div class="section-inner">
           <p class="section-eyebrow">Transparent pricing</p>
-          <h2 class="section-title" id="pricing-title">See your price and book instantly</h2>
-          <p class="section-subtext">Pick your vehicle size, choose a package, and book directly, no waiting on a callback.</p>
+          <h2 class="section-title" id="pricing-title">See your price</h2>
+          <p class="section-subtext">Pick your vehicle size to see your price, then get your free quote. No deposit, you pay after.</p>
 
           <div class="vehicle-grid" role="group" aria-label="Select your vehicle size">
             <button type="button" class="vehicle-btn" aria-pressed="true" onclick="selectVehicle(this, 'sedan')">
@@ -668,6 +843,7 @@ body.reveal-armed [data-reveal].reveal-in {
               <p class="pkg-tagline">Professional wash, clay bar decontamination, and sealant protection. Not just a car wash.</p>
               <p class="pkg-price" id="price-ext">$118</p>
               <p class="pkg-price-note">one-time · price varies by vehicle size</p>
+              <details class="pkg-details"><summary>What's included</summary>
               <ul class="pkg-list">
                 <li>Professional hand wash</li>
                 <li>Detail wheel face &amp; barrel</li>
@@ -678,7 +854,8 @@ body.reveal-armed [data-reveal].reveal-in {
                 <li>Clay bar decontamination</li>
                 <li>Paint sealant application</li>
               </ul>
-              <a href="https://book.squareup.com/appointments/3pjjnx229be02t/location/LGEKXKQS2XT2B/services/HRAGPXFUFG32CE6A6GB7QA56" class="pkg-book">Book now</a>
+              </details>
+              <a href="#quote" class="pkg-book" data-service="Exterior only">Get my free quote</a>
             </div>
             <div class="pkg featured" data-reveal style="--i: 1">
               <span class="pkg-badge">Most popular</span>
@@ -686,6 +863,7 @@ body.reveal-armed [data-reveal].reveal-in {
               <p class="pkg-tagline">Complete detail: fully cleaned inside and hand washed, waxed outside.</p>
               <p class="pkg-price" id="price-both">$278</p>
               <p class="pkg-price-note">one-time · price varies by vehicle size</p>
+              <details class="pkg-details"><summary>What's included</summary>
               <p class="pkg-section-label">Interior</p>
               <ul class="pkg-list">
                 <li>2-Step deep professional vacuum</li>
@@ -706,13 +884,15 @@ body.reveal-armed [data-reveal].reveal-in {
                 <li>Pre-treatment soak (bug removal, bird droppings, road debris)</li>
                 <li>High-gloss spray wax</li>
               </ul>
-              <a href="https://book.squareup.com/appointments/3pjjnx229be02t/location/LGEKXKQS2XT2B/services/KL2DPRZTYLZS74DR35VF5XFQ" class="pkg-book">Book now</a>
+              </details>
+              <a href="#quote" class="pkg-book" data-service="Full detail">Get my free quote</a>
             </div>
             <div class="pkg" data-reveal style="--i: 2">
               <p class="pkg-name">Interior only</p>
               <p class="pkg-tagline">Full interior detail: deep cleaned, steam treated, and refreshed throughout.</p>
               <p class="pkg-price" id="price-int">$198</p>
               <p class="pkg-price-note">one-time · price varies by vehicle size</p>
+              <details class="pkg-details"><summary>What's included</summary>
               <ul class="pkg-list">
                 <li>2-Step deep professional vacuum</li>
                 <li>High pressure blowout (crevices, vents, cupholders, etc.)</li>
@@ -722,8 +902,13 @@ body.reveal-armed [data-reveal].reveal-in {
                 <li>Dress plastic (matte finish)</li>
                 <li>Clean windows, mirrors &amp; visor</li>
               </ul>
-              <a href="https://book.squareup.com/appointments/3pjjnx229be02t/location/LGEKXKQS2XT2B/services/CEQ625TMJ6MQIV6SMT5UB5VE" class="pkg-book">Book now</a>
+              </details>
+              <a href="#quote" class="pkg-book" data-service="Interior only">Get my free quote</a>
             </div>
+          </div>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Free Quote</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
           </div>
         </div>
       </section>
@@ -754,6 +939,10 @@ body.reveal-armed [data-reveal].reveal-in {
               <img src="/resources/c7-exterior.webp" alt="Corvette exterior, after detailing, wheels and shine" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
           </div>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Free Quote</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
         </div>
       </section>
 
@@ -761,43 +950,268 @@ body.reveal-armed [data-reveal].reveal-in {
       <section class="section" id="reviews" aria-labelledby="reviews-title">
         <div class="section-inner">
           <p class="section-eyebrow">What customers say</p>
-          <h2 class="section-title" id="reviews-title">Rated 5.0 from 38+ Google reviews</h2>
-          <div class="reviews-grid">
-            <div class="review-box" data-reveal style="--i: 0">
-              <div class="review-info">
-                <img src="/resources/paul-profile.png" alt="Paul B" class="review-avatar" width="40" height="40" loading="lazy">
-                <div>
-                  <p>Paul B</p>
-                  <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-                </div>
-                <img src="/resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
+          <h2 class="section-title" id="reviews-title">Rated 5.0 from 40 Google reviews</h2>
+          <p class="section-subtext">Real reviews from drivers across Tempe and nearby.</p>
+          <ul class="reviews-grid">
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did an incredible job detailing our car. He was extremely thorough, detail oriented, and clearly takes a lot of pride in his work. Every inch of the car looked spotless inside and out and he did not miss a single thing. He was also professional, punctual, and easy to work with which made the whole experience seamless. You can tell he genuinely cares about delivering high quality results. Highly recommend Jordan if you are looking for someone who truly goes above and beyond.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
               </div>
-              <p>Jordan spent hours cleaning every millimeter of our Lexus. It was the most precise detailing I’ve ever had. When he finished, it looked so nice I thought it was someone else’s car. Additionally, Jordan is both polite and careful. I won’t hesitate to use him again.</p>
-            </div>
-            <div class="review-box" data-reveal style="--i: 1">
-              <div class="review-info">
-                <img src="/resources/jessica-profile.png" alt="Jessica Carney" class="review-avatar" width="40" height="40" loading="lazy">
+              <div class="review-author">
+                <img src="/resources/jenay-ryan.png" alt="" width="40" height="40" loading="lazy">
                 <div>
-                  <p>Jessica Carney</p>
-                  <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+                  <p class="review-author-name">J'enay &amp; Ryan Buell</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
                 </div>
-                <img src="/resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
               </div>
-              <p>Jordan did a fantastic job!! This young man has incredible work ethic, and takes pride in his job and it shows. I couldn’t be happier with the outcome of my car, it now looks as good as it did when I took it home from the dealership!! Great work Jordan!</p>
-            </div>
-            <div class="review-box" data-reveal style="--i: 2">
-              <div class="review-info">
-                <img src="/resources/sam-profile.png" alt="Sam Groove" class="review-avatar" width="40" height="40" loading="lazy">
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">I had an outstanding experience with Clean Shine mobile detailing! My car looks better than it has in years. He did a complete exterior detail, including a thorough wash, wax, tire shine. Every inch of the vehicle was spotless, and the paint had an incredible shine. I would highly recommend Jordan If you’re looking for professional auto detailer with a reliable mobile service. He arrived on time and treated my vehicle like it was his own.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/erin.png" alt="" width="40" height="40" loading="lazy">
                 <div>
-                  <p>Sam Groove</p>
-                  <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+                  <p class="review-author-name">Erin Paiso</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
                 </div>
-                <img src="/resources/google-review-logo.webp" alt="Google review" class="review-google-logo" width="40" height="40" loading="lazy">
               </div>
-              <p>Jordan came through for me last minute on a Saturday morning and did a fantastic job. Will be using their services again in the future. Support your local businesses!</p>
-            </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Thank you Jordan for all your hard work. Jordan is a very detailed oriented and meticulous worker. He focused on all the little details and the car looks amazing. I got this as a gift for my daughter and when she gets back from the great North(Minnesota) I know she is going to be ecstatic! Great work and I appreciate your hard work. Worth every penny.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #1A73E8" aria-hidden="true">M</span>
+                <div>
+                  <p class="review-author-name">Miguel Montero</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan spent hours cleaning every millimeter of our Lexus. It was the most precise detailing I’ve ever had. When he finished, it looked so nice I thought it was someone else’s car. Additionally, Jordan is both polite and careful. I won’t hesitate to use him again.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/paul-profile.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Paul B</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did a fantastic job!! This young man has incredible work ethic, and takes pride in his job and it shows. I couldn’t be happier with the outcome of my car, it now looks as good as it did when I took it home from the dealership!! Great work Jordan!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/jessica-profile.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Jessica Carney</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did an amazing job on my truck today he took his time and made sure no detail was missed and my truck was filthy… I would highly recommend this young man to anyone looking for a honest hard working individual that is willing to go the extra mile to make sure things are done properly. He was also very patient and easy to work with.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #188038" aria-hidden="true">R</span>
+                <div>
+                  <p class="review-author-name">Ryan Cason</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan came by and did a two-step paint correction on my vehicle. Very professional and nice came right on time. And it was a very easy process to book an appointment</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/shane.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Shane Wilsey</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan with Clean Shine Mobile Detailing did an outstanding job on my Tundra. He was punctual, professional, and paid attention to every detail. The truck looks absolutely spotless inside and out, honestly better than I expected.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #A142F4" aria-hidden="true">R</span>
+                <div>
+                  <p class="review-author-name">Ryan Wilson</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did a wonderful job detailing my car! He is so conscientious, friendly and efficient! You can tell he loves doing it. My car looks like brand new now! Definitely recommend!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/connie.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Connie Woods</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">I got a ceramic coating and he was on time and professional highly recommend!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/cynthia.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Cynthia Ouyang</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">I’m more than happy with the service. Interior detail looked great, and I was given tons of information about proper cleaning products and potential exterior services.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/zach.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Zach G</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan knows his stuff. Takes pride in his work and it shows up on the final product for sure. I've got a detail guy now.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/steve.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Steve C.</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did a great job and was very friendly! The truck was full of dogs’ hair and he cleaned all of it. Will definitely use again!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/ninel.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Ninel Kelly</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did a wonderful job detailing my car. He took his time and cleaned every inch. It was a pleasure having Jordan take care of my car. I highly recommend him.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/nancy.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Nancy Sines</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did an interior detail on my 2011 Jetta. Left it looking brand new. He’s passionate about what he does and is very knowledgeable. Definitely recommend him!!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #E8710A" aria-hidden="true">R</span>
+                <div>
+                  <p class="review-author-name">Ricardo Gerena</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan came through for me last minute on a Saturday morning and did a fantastic job. Will be using their services again in the future. Support your local businesses!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/sam-profile.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Sam Groove</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Great guy arrived on time and made my car look absolutely amazing</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #7B61FF" aria-hidden="true">Z</span>
+                <div>
+                  <p class="review-author-name">Zander Schumacher</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">The stains from spilled drinks and hard to reach spots were all taken care of and I can tell Jordan takes pride in his work.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/sebastian.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Sebastian Acu&#241;a Quintanilla</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="reviews-load"><button type="button" class="btn-quote reviews-load-btn" id="reviewsLoadMore">Load more reviews</button></div>
+          <p class="reviews-more"><a href="https://maps.app.goo.gl/TNSP9fZmYaVrCWnx5" target="_blank" rel="noopener">See all 40 reviews on Google →</a></p>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Free Quote</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
           </div>
-          <p class="reviews-more"><a href="https://maps.app.goo.gl/TNSP9fZmYaVrCWnx5" target="_blank" rel="noopener">See all reviews on Google →</a></p>
         </div>
       </section>
 
@@ -810,8 +1224,12 @@ body.reveal-armed [data-reveal].reveal-in {
           <div class="jordan-text">
             <p class="section-eyebrow">Who’s showing up at your door</p>
             <h2 class="section-title" id="jordan-title">Meet Jordan</h2>
-            <p><span class="jordan-name">Hi, I’m Jordan</span>, owner of Clean Shine Detailing. 38 five-star reviews and 100+ cars detailed in the East Valley.</p>
+            <p><span class="jordan-name">Hi, I’m Jordan</span>, owner of Clean Shine Detailing. 40 five-star reviews and 100+ cars detailed in the East Valley.</p>
             <p>When you book with me, I'm the one who shows up and does the work, not a tech I hired last month. Same hands, same standard, every time.</p>
+          <div class="section-ctas left">
+            <a href="#quote" class="btn-quote">Get My Free Quote</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
           </div>
         </div>
       </section>
@@ -855,8 +1273,12 @@ body.reveal-armed [data-reveal].reveal-in {
                 How do I book?
                 <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
               </button>
-              <div class="faq-a" id="faq-a-5"><div class="faq-a-inner">Book online instantly using the pricing section above, or call/text us at (480) 799-7248. We typically have availability within the same week.</div></div>
+              <div class="faq-a" id="faq-a-5"><div class="faq-a-inner">Request a free quote using the form at the top of the page, or call/text us at (480) 799-7248. We typically have availability within the same week.</div></div>
             </div>
+          </div>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Free Quote</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
           </div>
         </div>
       </section>
@@ -885,6 +1307,10 @@ body.reveal-armed [data-reveal].reveal-in {
             <span class="area-chip">Goodyear</span>
           </div>
           <p class="areas-note">Not sure if we cover your area? Call us and we're happy to check.</p>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Free Quote</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
         </div>
       </section>
 
@@ -892,49 +1318,11 @@ body.reveal-armed [data-reveal].reveal-in {
       <section class="section-final" aria-labelledby="final-cta-title">
         <p class="section-eyebrow">Now booking this week</p>
         <h2 id="final-cta-title">Ready to make your car shine again?</h2>
-        <div class="final-ctas">
-          <a href="#pricing" class="cta-form">See my price &amp; book now</a>
-          <a href="tel:+14807997248" class="cta-phone" aria-label="Call Clean Shine Detailing at (480) 799-7248">
-            <img src="/resources/phone.png" alt="" class="icon" width="18" height="18" loading="lazy">
-            (480) 799-7248
-          </a>
+        <div class="section-ctas">
+          <a href="#quote" class="btn-quote">Get My Free Quote</a>
+          <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
         </div>
-        <p class="final-fallback">Prefer we call you instead? <a href="#quote">Request a callback</a></p>
-      </section>
-
-      <!-- FALLBACK CALLBACK FORM -->
-      <section class="section-form" id="quote">
-        <form action="https://formspree.io/f/mnnwgyag" method="POST" class="form-box" id="quoteForm">
-          <p class="form-eyebrow">Clean Shine Detailing</p>
-          <h2 class="form-headline">Request a callback</h2>
-          <p class="form-subtext">We’ll call you back shortly to lock in your quote.</p>
-
-          <div class="form-field">
-            <label for="name">Your name</label>
-            <div class="form-input-wrap">
-              <img src="/resources/person.png" alt="" class="icon" width="20" height="20" loading="lazy">
-              <input type="text" id="name" name="name" placeholder="Jake Thomson" autocomplete="name" required>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label for="phone">Phone number</label>
-            <div class="form-input-wrap">
-              <img src="/resources/phone-accent.png" alt="" class="icon" width="20" height="20" loading="lazy">
-              <input type="tel" id="phone" name="phone" placeholder="(480) 555-0192" autocomplete="tel" required>
-            </div>
-          </div>
-
-          <button type="submit" class="cta-form form-submit" aria-live="polite">
-            Request callback
-            <img src="/resources/arrow.png" alt="" class="icon" width="20" height="20" loading="lazy">
-          </button>
-          <p class="form-trust">
-            <img src="/resources/lock.png" alt="" width="12" height="12" loading="lazy">
-            &nbsp;No spam. Just a quick call.
-          </p>
-          <p class="form-error" id="formError" role="alert" hidden>Something went wrong sending your request. Please try again or call us at (480) 799-7248.</p>
-        </form>
+        <p class="final-trust">★★★★★ 5.0 on Google · No deposit · Same-week availability</p>
       </section>
     </main>
 
@@ -945,52 +1333,9 @@ body.reveal-armed [data-reveal].reveal-in {
 
     <!-- STICKY MOBILE CTA BAR -->
     <div class="mobile-cta-bar" role="region" aria-label="Quick actions">
-      <a href="tel:+14807997248" class="cta-phone" aria-label="Call Clean Shine Detailing at (480) 799-7248">
-        <img src="/resources/phone.png" alt="" class="icon" width="18" height="18">
-        Call
-      </a>
-      <a href="#pricing" class="cta-form">Book now</a>
+      <a href="tel:+14807997248" class="bar-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">Call Now</a>
+      <a href="#quote" class="bar-quote">Get Free Quote</a>
     </div>
-
-    <!-- BOOKING POPUP: collects name + phone before sending to Square -->
-    <dialog class="booking-modal" id="bookingModal" aria-labelledby="booking-title">
-      <form action="https://formspree.io/f/mnnwgyag" method="POST" class="form-box" id="bookingForm">
-        <button type="button" class="modal-close" id="bookingClose" aria-label="Close">&times;</button>
-        <p class="form-eyebrow">Almost there</p>
-        <h2 class="form-headline" id="booking-title">Book an appointment</h2>
-        <p class="form-subtext">Verify your phone number below to get started.</p>
-
-        <input type="hidden" name="_subject" id="bookingSubject" value="Booking started">
-        <input type="hidden" name="package" id="bookingPackage">
-        <input type="hidden" name="vehicle" id="bookingVehicle">
-        <input type="hidden" name="page" value="landing/tempe">
-
-        <div class="form-field">
-          <label for="bk-name">Your name</label>
-          <div class="form-input-wrap">
-            <img src="/resources/person.png" alt="" class="icon" width="20" height="20" loading="lazy">
-            <input type="text" id="bk-name" name="name" placeholder="Jake Thomson" autocomplete="name" required>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label for="bk-phone">Phone number</label>
-          <div class="form-input-wrap">
-            <img src="/resources/phone-accent.png" alt="" class="icon" width="20" height="20" loading="lazy">
-            <input type="tel" id="bk-phone" name="phone" placeholder="(480) 555-0192" autocomplete="tel" required>
-          </div>
-        </div>
-
-        <button type="submit" class="cta-form form-submit" aria-live="polite">
-          Continue to booking
-          <img src="/resources/arrow.png" alt="" class="icon" width="20" height="20" loading="lazy">
-        </button>
-        <p class="form-trust">
-          <img src="/resources/lock.png" alt="" width="12" height="12" loading="lazy">
-          &nbsp;No spam. Only used for your booking.
-        </p>
-      </form>
-    </dialog>
 
     <script>
       // Vehicle-size pricing (matches pricing.html)
@@ -1079,101 +1424,81 @@ body.reveal-armed [data-reveal].reveal-in {
         trackingParams.forEach(function(param) {
           const value = params.get(param);
           if (value) {
-            ['quoteForm', 'bookingForm'].forEach(function(formId) {
-              const input = document.createElement('input');
-              input.type = 'hidden';
-              input.name = param;
-              input.value = value;
-              document.getElementById(formId).appendChild(input);
-            });
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = param;
+            input.value = value;
+            document.getElementById('quoteForm').appendChild(input);
           }
         });
       })();
 
-      // Booking popup: Square "Book now" buttons open a name + phone form first,
-      // then continue to Square. If the lead fails to send, still let them book.
+      // Pricing cards: scroll up to the quote form and tick the matching service.
+      document.querySelectorAll('.pkg-book[data-service]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          const box = document.querySelector('#quoteForm input[name="services"][value="' + link.dataset.service + '"]');
+          if (box) box.checked = true;
+        });
+      });
+
+      // Reviews: "Read more" only on reviews that are cut off, and "Load more" reveals the rest.
       (function () {
-        const modal = document.getElementById('bookingModal');
-        const form = document.getElementById('bookingForm');
-        if (!modal || typeof modal.showModal !== 'function') return;
-        let bookingUrl = null;
-
-        document.querySelectorAll('.pkg-book').forEach(function (link) {
-          link.addEventListener('click', function (e) {
-            e.preventDefault();
-            bookingUrl = link.href;
-            const pkgName = link.closest('.pkg').querySelector('.pkg-name').textContent.trim();
-            const vehicleBtn = document.querySelector('.vehicle-btn[aria-pressed="true"] .v-name');
-            document.getElementById('bookingPackage').value = pkgName;
-            document.getElementById('bookingVehicle').value = vehicleBtn ? vehicleBtn.textContent.trim() : '';
-            document.getElementById('bookingSubject').value = 'Booking started: ' + pkgName + ' (Tempe)';
-            modal.showModal();
-          });
-        });
-
-        document.getElementById('bookingClose').addEventListener('click', function () { modal.close(); });
-        modal.addEventListener('click', function (e) {
-          if (e.target === modal) modal.close();
-        });
-
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          const submitBtn = form.querySelector('.form-submit');
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'One sec…';
-
-          // Go to Square once both the lead is sent and GTM has fired its tags.
-          // The safety timer covers ad blockers or a slow network.
-          let remaining = 2;
-          let left = false;
-          function goToSquare() {
-            if (left) return;
-            left = true;
-            window.location.href = bookingUrl;
+        function checkClamp(bubble) {
+          const text = bubble.querySelector('.review-text');
+          const more = bubble.querySelector('.review-more');
+          if (!bubble.classList.contains('expanded')) {
+            more.hidden = text.scrollHeight <= text.clientHeight + 1;
           }
-          function stepDone() {
-            remaining -= 1;
-            if (remaining <= 0) goToSquare();
-          }
-          window.setTimeout(goToSquare, 4000);
-
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'booking_form_submit',
-            booking_package: document.getElementById('bookingPackage').value,
-            booking_vehicle: document.getElementById('bookingVehicle').value,
-            booking_page: form.querySelector('input[name="page"]').value,
-            eventCallback: stepDone,
-            eventTimeout: 2000,
+        }
+        document.querySelectorAll('.review-bubble').forEach(function (bubble) {
+          const more = bubble.querySelector('.review-more');
+          more.addEventListener('click', function () {
+            const expanded = bubble.classList.toggle('expanded');
+            more.textContent = expanded ? 'Read less' : 'Read more';
           });
-
-          fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { Accept: 'application/json' },
-          })
-            .catch(function () {})
-            .then(stepDone);
+          checkClamp(bubble);
+        });
+        window.addEventListener('resize', function () {
+          document.querySelectorAll('.reviews-grid > li:not([hidden]) .review-bubble').forEach(checkClamp);
+        });
+        const loadBtn = document.getElementById('reviewsLoadMore');
+        const extras = document.querySelectorAll('.review-extra');
+        if (!extras.length) { loadBtn.hidden = true; return; }
+        loadBtn.addEventListener('click', function () {
+          extras.forEach(function (li) {
+            li.hidden = false;
+            checkClamp(li.querySelector('.review-bubble'));
+          });
+          loadBtn.hidden = true;
         });
       })();
+
+      // Tell GTM about phone taps so calls can be tracked as conversions.
+      document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'phone_click', page: 'landing/tempe' });
+        });
+      });
 
       const quoteForm = document.getElementById("quoteForm");
       const formError = document.getElementById("formError");
       quoteForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        const submitBtn = quoteForm.querySelector(".form-submit");
+        const submitBtn = quoteForm.querySelector(".estimate-submit");
         const originalBtnHTML = submitBtn.innerHTML;
         formError.hidden = true;
         submitBtn.disabled = true;
         submitBtn.textContent = "Sending…";
-        const data = new FormData(quoteForm);
         fetch(quoteForm.action, {
           method: "POST",
-          body: data,
+          body: new FormData(quoteForm),
           headers: { Accept: "application/json" },
         })
           .then((response) => {
             if (response.ok) {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: 'quote_form_submit', page: 'landing/tempe' });
               window.location.href = "/thank-you.html";
             } else {
               throw new Error("Submission failed");

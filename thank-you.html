@@ -10,8 +10,12 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WQ2KM3ZD');</script>
     <!-- End Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691480552"></script>
     <script>
-      gtag('config', 'AW-17691480552/FUc7CPyHicccEOij-vNB', {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17691480552', {
         'phone_conversion_number': '(480) 799-7248'
       });
     </script>
@@ -20,7 +24,7 @@
     <link rel="icon" type="image/png" href="resources/main-logo-cropped.webp">
     <style>
       .thanks-box {
-        height: 70vh;
+        min-height: 70vh;
         max-width: 480px;
         margin: 0 auto;
         margin-top: 100px;
@@ -40,6 +44,15 @@
       .thanks-check svg { width: 26px; height: 26px; }
       .thanks-box h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
       .thanks-box p { font-size: 15px; color: var(--text-muted, #555); line-height: 1.6; margin-bottom: 24px; }
+      .book-now {
+        border-top: 1px solid #e2e2e2;
+        padding-top: 24px;
+        margin-bottom: 28px;
+      }
+      .book-now h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+      .book-now p { margin-bottom: 18px; }
+      .book-now .cta-form, .book-now .cta-phone { width: 100%; justify-content: center; margin-bottom: 12px; }
+      .back-home { font-size: 14px; color: var(--text-muted, #555); }
     </style>
 </head>
 <body>
@@ -73,8 +86,17 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="#44B5EE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
       <h1>You're all set!</h1>
-      <p>Thanks for reaching out to Clean Shine Detailing. We'll call you back within the hour to lock in your quote.</p>
-      <a href="index.html" class="cta-form">Back to home</a>
+      <p>Thanks for reaching out to Clean Shine Detailing. We'll call you back within the hour from (480) 799-7248 to lock in your quote.</p>
+      <div class="book-now">
+        <h2>Want to book right now?</h2>
+        <p>Skip the wait and pick a day and time that works for you. No deposit needed, you pay after.</p>
+        <a href="https://book.squareup.com/appointments/3pjjnx229be02t/location/LGEKXKQS2XT2B/services" class="cta-form">Pick a time online</a>
+        <a href="tel:+14807997248" class="cta-phone">
+          <img src="resources/phone.png" alt="">
+          Or call (480) 799-7248
+        </a>
+      </div>
+      <a href="index.html" class="back-home">Back to home</a>
     </section>
 
     <section class="section-footer">
