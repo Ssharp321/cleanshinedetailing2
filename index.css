@@ -149,6 +149,16 @@ nav {
   width: 100%;
   object-fit: cover;
   object-position: center bottom;
+  border-radius: 20px;
+}
+.section-hero {
+  gap: 24px;
+}
+.hero-img {
+  border-radius: 20px;
+}
+.ctas a {
+  white-space: nowrap;
 }
 .section-reviews {
   display: flex;
@@ -202,7 +212,8 @@ nav {
     justify-content: center;
 }
 .service-box {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     padding: 16px;
     border-radius: 20px;
     display: flex;
@@ -237,9 +248,10 @@ nav {
 .pricing-box {
   background-color: var(--bg-light);
   display: flex;
+  flex-direction: column;
   max-width: 100%;
   width: 1000px;
-  padding: 32px;
+  padding: 24px;
   border-radius: 20px;
   gap: 24px;
 }
@@ -481,6 +493,7 @@ nav {
   flex-direction: column;
   color: var(--text-light);
   gap: 16px;
+  text-align: center;
 }
 .footer-links {
   display: flex;
@@ -499,6 +512,14 @@ nav {
 @media (max-width: 600px) {
   .sa-grid {
     grid-template-columns: 1fr;
+  }
+  /* Phones: let the two hero buttons sit full width on their own rows instead of squashing */
+  .hero-txt .ctas {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .hero-txt .ctas a {
+    flex: 1 1 auto;
   }
 }
 @media (min-width: 700px) {
@@ -526,6 +547,10 @@ nav {
   }
   .pricing-tiers {
     flex-direction: row;
+  }
+  .pricing-box {
+    flex-direction: row;
+    padding: 32px;
   }
   :root {
     --side-padding: 48px;

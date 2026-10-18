@@ -708,6 +708,21 @@ body.reveal-armed [data-reveal].reveal-in {
   .review-author-name { font-size: 13px; line-height: 1.25; }
   .review-author-src { font-size: 12px; }
 }
+/* Hide the sticky call/quote bar while the form itself is on screen */
+.mobile-cta-bar { transition: transform 200ms var(--ease-out-quart); }
+.mobile-cta-bar.is-hidden { transform: translateY(110%); }
+
+/* Phones: trim the hero so Name, Phone and the button fit on the first screen */
+@media (max-width: 699px) {
+  .section-hero { padding-top: 18px; padding-bottom: 28px; gap: 18px; }
+  .hero-txt { gap: 10px; }
+  .h1-extra, .section-hero p.hero-sub { display: none; }
+  h1.hero-h1 { font-size: 30px; }
+  .hero-points { gap: 6px; }
+  .hero-points li { font-size: 15px; }
+  .estimate-title { font-size: 21px; padding: 14px 16px 10px; }
+  .estimate-form { padding: 12px 18px 18px; }
+}
     </style>
   </head>
   <body>
@@ -746,10 +761,10 @@ body.reveal-armed [data-reveal].reveal-in {
             <span class="dot" aria-hidden="true">·</span>
             <span>Scottsdale, AZ</span>
           </p>
-          <h1 class="hero-h1">Mobile car detailing in Scottsdale - Make your car shine like new</h1>
+          <h1 class="hero-h1">Mobile car detailing in Scottsdale<span class="h1-extra"> - Make your car shine like new</span></h1>
           <p class="hero-sub">Rated 5 stars on Google. We come to your home in Scottsdale and detail your car inside and out so it feels showroom ready again.</p>
           <ul class="hero-points">
-            <li>We come to your home or office</li>
+            <li>We come to you, no water or power needed</li>
             <li>Full details from $278, interior from $198</li>
             <li>No deposit. Pay when you're happy.</li>
           </ul>
@@ -1255,6 +1270,13 @@ body.reveal-armed [data-reveal].reveal-in {
               <div class="faq-a" id="faq-a-2"><div class="faq-a-inner">Yes, that’s the whole point. We come to your home, office, or wherever your car is parked. No drop-off, no waiting at a shop.</div></div>
             </div>
             <div class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-water" onclick="toggleFaq(this)">
+                Do I need to provide water or power?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
+              </button>
+              <div class="faq-a" id="faq-a-water"><div class="faq-a-inner">No. We bring our own water and our own power (we have a generator), plus all the professional equipment. You don’t need a hose, an outlet or anything else, just access to your vehicle.</div></div>
+            </div>
+            <div class="faq-item">
               <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3" onclick="toggleFaq(this)">
                 What forms of payment do you accept?
                 <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
@@ -1480,6 +1502,16 @@ body.reveal-armed [data-reveal].reveal-in {
           window.dataLayer.push({ event: 'phone_click', page: 'landing/scottsdale' });
         });
       });
+
+      // Hide the sticky call/quote bar while the quote form is on screen, so it never covers the fields.
+      (function () {
+        const bar = document.querySelector('.mobile-cta-bar');
+        const card = document.getElementById('quote');
+        if (!bar || !card || !('IntersectionObserver' in window)) return;
+        new IntersectionObserver(function (entries) {
+          bar.classList.toggle('is-hidden', entries[0].isIntersecting);
+        }, { threshold: 0.15 }).observe(card);
+      })();
 
       const quoteForm = document.getElementById("quoteForm");
       const formError = document.getElementById("formError");
