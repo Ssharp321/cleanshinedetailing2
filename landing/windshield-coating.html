@@ -1,0 +1,1686 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400&display=swap">
+    <link rel="preload" href="/resources/hero.webp" as="image" fetchpriority="high">
+    <meta name="description" content="Get a $300 windshield coating in the East Valley for just the cost of materials. Free labor. Done at your home or office. 5-star rated on Google. No deposit.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/png" href="/resources/main-logo-cropped.webp">
+    <title>Windshield Coating Offer - Clean Shine Detailing</title>
+    <style>
+:root {
+  --accent: #44B5EE;
+  --accent-dark: #1c7fb0;
+  --accent-tint: #EEF8FD;
+  --accent-tint2: #D9F0FB;
+  --text: #000000;
+  --text-light: #ffffff;
+  --text-muted: #4D4D4D;
+  --text-faint: #6E6E6E;
+  --google-star: #FBBC04;
+  --bg: #F2F2F2;
+  --bg-dark: #E6E6E6;
+  --bg-light: #FFFFFF;
+  --border: #E2E2E2;
+
+  --font: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --fs-h1: 36px;
+  --fs-h2: 24px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+
+  --side-padding: 24px;
+  --section-padding: 40px;
+  --flex-direction: column;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-family: var(--font);
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg-light);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 76px; /* space for sticky mobile CTA bar */
+  -webkit-tap-highlight-color: transparent;
+}
+h1, h2, h3, strong { font-weight: 700; }
+
+:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  background: var(--text);
+  color: var(--text-light);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- NAV ---------- */
+nav {
+  display: flex;
+  position: sticky;
+  background-color: var(--bg-light);
+  align-items: center;
+  padding: 20px var(--side-padding);
+  width: 100%;
+  min-height: 100px;
+  top: 0;
+  z-index: 100;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 200ms var(--ease-out-quart);
+}
+nav.nav-scrolled { box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12); }
+.main-logo { height: 100%; }
+.main-logo img { height: 100%; }
+.desktop-img { display: none; }
+.mobile-img { display: block; }
+.ctas { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.cta-phone {
+  gap: 8px;
+  display: flex;
+  background-color: var(--bg-dark);
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  border-radius: var(--radius-pill);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.cta-form {
+  display: flex;
+  background-color: var(--accent);
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  border: none;
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cta-form:hover, .cta-phone:hover { filter: brightness(0.96); }
+.cta-form:active, .cta-phone:active { transform: scale(0.97); }
+.cta-form-nav { display: none; }
+.icon { height: 18px; width: 18px; flex-shrink: 0; }
+.cta-phone, .cta-form, .vehicle-btn, .pkg-book, .faq-q {
+  touch-action: manipulation;
+  transition: transform 150ms var(--ease-out-quart), border-color 150ms var(--ease-out-quart), background-color 150ms var(--ease-out-quart), filter 150ms var(--ease-out-quart);
+}
+
+/* ---------- HERO ---------- */
+.section-hero {
+  display: flex;
+  flex-direction: var(--flex-direction);
+  width: 100%;
+  padding: var(--section-padding) var(--side-padding);
+  background-color: var(--bg);
+  align-items: center;
+  gap: 32px;
+}
+.hero-txt {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: start;
+  gap: 14px;
+}
+.trust-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+.trust-line .stars { color: var(--google-star); letter-spacing: 1px; }
+.trust-line .dot { color: var(--border); }
+h1.hero-h1 { font-size: var(--fs-h1); line-height: 1.15; text-wrap: balance; }
+p.hero-sub { font-size: var(--fs-body); color: var(--text-muted); max-width: 52ch; }
+
+.media-slot {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  border: 1.5px dashed var(--border);
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-faint);
+  font-size: var(--fs-small);
+  padding: 16px;
+}
+/* Hero photo behind a dark blue overlay so the white text stays readable */
+.section-hero {
+  background-color: #0c2048;
+  background-image: linear-gradient(rgba(12, 32, 72, 0.82), rgba(12, 32, 72, 0.82)), url('/resources/hero.webp');
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+}
+.section-hero .trust-line { color: rgba(255, 255, 255, 0.9); }
+.section-hero .trust-line .dot { color: rgba(255, 255, 255, 0.4); }
+.section-hero p.hero-sub { color: rgba(255, 255, 255, 0.88); }
+.section-hero .hero-points li { color: var(--text-light); }
+.hero-form { width: 100%; display: flex; justify-content: center; }
+.hero-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.hero-points li { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.hero-points li::before {
+  content: '';
+  width: 20px; height: 20px; min-width: 20px; border-radius: 50%;
+  background: var(--accent-tint2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M3 7.5L5.5 10L11 5' stroke='%2344B5EE' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-txt > * {
+  animation: hero-in 700ms var(--ease-out-quint) both;
+}
+.hero-txt > .trust-line { animation-delay: 0ms; }
+.hero-txt > .hero-h1 { animation-delay: 0ms; }
+.hero-txt > .hero-sub { animation-delay: 170ms; }
+.hero-txt > .hero-points { animation-delay: 240ms; }
+
+/* ---------- TRUST STRIP ---------- */
+.section-trust {
+  display: flex;
+  width: 100%;
+  padding: 24px var(--side-padding);
+  background: var(--bg-light);
+  border-bottom: 1px solid var(--border);
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+/* Scroll-reveal for genuine repeating lists only (trust items, package cards, gallery, reviews).
+   Hidden state only applies once JS has armed it (body.reveal-armed); if JS never runs,
+   these elements keep their normal fully-visible default. */
+body.reveal-armed [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 550ms var(--ease-out-quart), transform 550ms var(--ease-out-quart);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+body.reveal-armed [data-reveal].reveal-in {
+  opacity: 1;
+  transform: none;
+}
+.trust-item .check {
+  width: 20px; height: 20px; min-width: 20px; border-radius: 50%;
+  background: var(--accent-tint2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M3 7.5L5.5 10L11 5' stroke='%2344B5EE' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ---------- SECTION SHELL ---------- */
+.section {
+  width: 100%;
+  padding: var(--section-padding) var(--side-padding);
+  scroll-margin-top: 100px;
+}
+.section-alt { background: var(--bg); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent-dark); margin-bottom: 8px;
+}
+.section-title { font-size: var(--fs-h2); margin-bottom: 6px; text-wrap: balance; }
+.section-subtext { color: var(--text-muted); font-size: var(--fs-body); margin-bottom: 24px; max-width: 60ch; }
+
+/* ---------- VEHICLE + PACKAGES (reused from pricing.html logic) ---------- */
+.vehicle-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
+.vehicle-btn {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 14px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--bg-light);
+  font-family: var(--font);
+  color: var(--text);
+}
+.vehicle-btn:hover { border-color: var(--accent); }
+.vehicle-btn:active { transform: scale(0.98); }
+.vehicle-btn[aria-pressed="true"] { border: 2px solid var(--accent); background: var(--accent-tint); }
+.vehicle-btn .v-name { font-size: 14px; font-weight: 600; }
+.vehicle-btn .v-eg { font-size: 12px; color: var(--text-faint); margin-top: 4px; }
+
+.packages-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.pkg {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  background: var(--bg-light);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.pkg.featured { border: 2px solid var(--accent); }
+.pkg-badge {
+  position: absolute; top: -12px; left: 20px;
+  background: var(--accent); color: var(--text-light);
+  font-size: 11px; font-weight: 600; padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+.pkg-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.pkg-tagline { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+.pkg-section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-faint); margin: 14px 0 8px;
+}
+.pkg-list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 20px; }
+.pkg-list li {
+  font-size: 12.5px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 7px; line-height: 1.4;
+}
+.pkg-list li::before {
+  content: '';
+  display: block; width: 14px; height: 14px; min-width: 14px; border-radius: 50%;
+  background: var(--accent-tint2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M3 7.5L5.5 10L11 5' stroke='%2344B5EE' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: cover;
+  margin-top: 1px;
+}
+.pkg-price {
+  font-size: 32px; font-weight: 700; color: var(--accent-dark); font-variant-numeric: tabular-nums;
+  display: inline-block;
+  transition: opacity 180ms var(--ease-out-quart), transform 180ms var(--ease-out-quart);
+}
+.pkg-price.price-updating { opacity: 0; transform: translateY(4px); }
+.pkg-price-note { font-size: 11px; color: var(--text-faint); margin-bottom: 16px; }
+.pkg-details { margin-bottom: 18px; border-top: 1px solid var(--border); }
+.pkg-details summary {
+  list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0 4px;
+  font-size: 14px; font-weight: 700; color: var(--accent-dark);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.pkg-details summary::-webkit-details-marker { display: none; }
+.pkg-details summary::after {
+  content: '';
+  width: 8px; height: 8px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 200ms var(--ease-out-quart);
+}
+.pkg-details[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.pkg-details .pkg-list:last-child { margin-bottom: 4px; }
+.pkg-details[open] summary { margin-bottom: 4px; }
+.pkg-book {
+  display: block; text-align: center; text-decoration: none;
+  margin-top: auto; padding: 12px; background: var(--accent); color: #fff;
+  border-radius: var(--radius-sm); font-weight: 600; font-size: 14px;
+}
+.pkg-book:hover { background: var(--accent-dark); }
+.pkg-book:active { transform: scale(0.97); }
+
+/* ---------- GALLERY ---------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.gallery-slot {
+  aspect-ratio: 1 / 1;
+  transition: transform 220ms var(--ease-out-quart), box-shadow 220ms var(--ease-out-quart);
+}
+.gallery-slot:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+/* Mobile (2-column grid): reorder so interior fills the left column
+   and exterior fills the right column.
+   Desktop's 3-column grid already gets this grouping from natural DOM order. */
+@media (max-width: 699px) {
+  .gallery-grid > :nth-child(1) { order: 1; }
+  .gallery-grid > :nth-child(2) { order: 3; }
+  .gallery-grid > :nth-child(3) { order: 5; }
+  .gallery-grid > :nth-child(4) { order: 2; }
+  .gallery-grid > :nth-child(5) { order: 4; }
+  .gallery-grid > :nth-child(6) { order: 6; }
+}
+
+/* ---------- REVIEWS ---------- */
+.reviews-grid { list-style: none; display: grid; grid-template-columns: 1fr; gap: 28px; }
+.reviews-grid > li { display: flex; flex-direction: column; }
+.reviews-grid > li[hidden] { display: none; }
+/* Two reviews per row on phones and tablets (desktop rules further down switch to 3). */
+.reviews-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.review-bubble {
+  flex: 1;
+  position: relative;
+  background: var(--bg);
+  border-radius: 24px;
+  padding: 22px 24px 20px;
+  margin-bottom: 18px;
+}
+.review-bubble::after {
+  content: '';
+  position: absolute;
+  left: 28px;
+  bottom: -12px;
+  border-width: 12px 12px 0 0;
+  border-style: solid;
+  border-color: var(--bg) transparent transparent transparent;
+}
+.review-bubble .stars { color: var(--google-star); font-size: 18px; letter-spacing: 2px; line-height: 1; margin-bottom: 8px; }
+.review-text {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.review-bubble.expanded .review-text { -webkit-line-clamp: unset; line-clamp: unset; display: block; }
+.review-more {
+  background: none; border: none; padding: 0; margin-top: 4px;
+  font-family: var(--font); font-size: 14px; color: var(--text-faint);
+  cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+}
+.review-more[hidden] { display: none; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-author img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.review-initial {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 18px; font-weight: 600;
+}
+.review-author-name { font-size: 15px; font-weight: 700; }
+.review-author-src { font-size: 13px; color: var(--text-faint); }
+.review-author-src .g { font-weight: 700; }
+.review-author-src .g b:nth-child(1), .review-author-src .g b:nth-child(4) { color: #4285F4; }
+.review-author-src .g b:nth-child(2), .review-author-src .g b:nth-child(6) { color: #EA4335; }
+.review-author-src .g b:nth-child(3) { color: #FBBC05; }
+.review-author-src .g b:nth-child(5) { color: #34A853; }
+.reviews-load { display: flex; justify-content: center; margin-top: 28px; }
+.reviews-load-btn { border: none; font-family: var(--font); cursor: pointer; }
+.reviews-load-btn[hidden] { display: none; }
+.reviews-more { margin-top: 18px; text-align: center; }
+.reviews-more a { color: var(--accent-dark); font-weight: 700; text-decoration: none; font-size: 15px; }
+.reviews-more a:hover { text-decoration: underline; }
+
+/* ---------- JORDAN ---------- */
+.jordan-wrap { display: flex; flex-direction: column; gap: 20px; align-items: start; }
+.jordan-photo { width: 140px; height: 140px; min-height: 140px; border-radius: 50%; flex-shrink: 0; overflow: hidden; }
+.jordan-photo .media-slot { border-radius: 50%; }
+.jordan-text p { font-size: var(--fs-body); color: var(--text-muted); margin-bottom: 10px; max-width: 60ch; text-wrap: pretty; }
+.jordan-text p:last-child { margin-bottom: 0; }
+.jordan-name { font-weight: 700; color: var(--text); }
+
+/* ---------- FAQ ---------- */
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item { border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--bg-light); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; text-align: left; padding: 16px 18px; cursor: pointer;
+  font-size: 14px; font-weight: 600; gap: 12px;
+  background: none; border: none; font-family: var(--font); color: var(--text);
+}
+.faq-q:hover { background: var(--bg); }
+.faq-q:active { background: var(--accent-tint); }
+.faq-chevron { width: 18px; height: 18px; flex-shrink: 0; color: var(--accent-dark); }
+.faq-chevron-g { transform-origin: 12px 12px; transition: transform 0.25s var(--ease-out-quart); }
+.faq-chevron.open .faq-chevron-g { transform: rotate(180deg); }
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s var(--ease-out-quart), opacity 0.25s var(--ease-out-quart);
+}
+.faq-a.open { grid-template-rows: 1fr; opacity: 1; }
+.faq-a-inner {
+  overflow: hidden;
+  font-size: 13px; color: var(--text-muted); line-height: 1.65;
+  padding: 0 18px;
+  text-wrap: pretty;
+}
+.faq-a.open .faq-a-inner { padding: 0 18px 16px; }
+
+/* ---------- SERVICE AREAS ---------- */
+.areas-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.area-chip {
+  background: var(--bg-dark); color: var(--text); font-size: 13px; font-weight: 500;
+  padding: 8px 16px; border-radius: var(--radius-pill);
+}
+.areas-note { margin-top: 14px; font-size: 13px; color: var(--text-faint); }
+
+/* ---------- FINAL CTA ---------- */
+.section-final {
+  background: var(--text);
+  color: var(--text-light);
+  text-align: center;
+  padding: 48px var(--side-padding);
+}
+.section-final .section-eyebrow { color: var(--accent); }
+.section-final h2 { font-size: var(--fs-h2); margin-bottom: 20px; text-wrap: balance; }
+.final-trust { margin-top: 18px; font-size: 14px; opacity: 0.85; }
+
+/* ---------- CTA PAIR (free quote + call), repeated in every section ---------- */
+.section-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 24px; margin-top: 32px; }
+.section-ctas.left { justify-content: flex-start; }
+.btn-quote, .btn-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  max-width: 100%;
+  padding: 17px 20px;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  touch-action: manipulation;
+  transition: transform 150ms var(--ease-out-quart), filter 150ms var(--ease-out-quart);
+}
+.btn-quote { background: linear-gradient(var(--accent), var(--accent-dark)); color: var(--text-light); }
+.btn-call { background: var(--text); color: var(--accent); }
+.btn-quote:hover, .btn-call:hover { filter: brightness(1.08); }
+.btn-quote:active, .btn-call:active { transform: scale(0.98); }
+.section-final .btn-call { background: var(--bg-light); color: var(--text); }
+
+/* ---------- QUOTE FORM (hero) ---------- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.estimate-card {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(#ffffff, #f1f1f1);
+  color: var(--text);
+  border-radius: 16px;
+  border: 1.5px solid var(--border);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  scroll-margin-top: 110px;
+  animation: hero-in 800ms var(--ease-out-quint) both;
+  animation-delay: 100ms;
+}
+.estimate-title {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  padding: 18px 20px 14px;
+  margin: 0 16px;
+  border-bottom: 1px solid #d6d6d6;
+}
+.estimate-form { padding: 16px 26px 22px; }
+.estimate-form fieldset { border: none; margin-bottom: 14px; }
+.estimate-form legend { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.legend-optional { font-weight: 400; color: var(--text-faint); font-size: 14px; }
+.check-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 12px; }
+.check-row { display: flex; align-items: center; gap: 8px; font-size: 15px; padding: 4px 0; cursor: pointer; }
+.check-row input { width: 17px; height: 17px; accent-color: var(--accent-dark); cursor: pointer; }
+.field-row { margin-bottom: 14px; }
+.field input {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 16px;
+  padding: 10px 12px;
+  border: 1px solid #bdbdbd;
+  background: var(--bg-light);
+  color: var(--text);
+  border-radius: 0;
+  min-height: 44px;
+}
+.field input::placeholder { font-style: italic; color: #9a9a9a; }
+.field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-tint2); }
+.form-note { font-size: 14px; font-weight: 600; color: var(--accent-dark); margin: 2px 0 12px; }
+.estimate-form fieldset { margin-top: 2px; }
+/* Short review right under the submit button, to reassure at the moment of decision */
+.form-review {
+  display: flex; align-items: flex-start; gap: 12px;
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid #dedede;
+}
+.form-review img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.form-review-stars { color: var(--google-star); font-size: 13px; letter-spacing: 1px; line-height: 1; margin-bottom: 4px; }
+.form-review blockquote { font-size: 14px; font-style: italic; line-height: 1.45; color: var(--text); }
+.form-review figcaption { font-size: 12px; color: var(--text-faint); margin-top: 3px; }
+.estimate-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(var(--accent), var(--accent-dark));
+  color: var(--text-light);
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(28, 127, 176, 0.35);
+  touch-action: manipulation;
+  transition: transform 150ms var(--ease-out-quart), filter 150ms var(--ease-out-quart), opacity 150ms var(--ease-out-quart);
+}
+.estimate-submit:hover { filter: brightness(1.05); }
+.estimate-submit:active { transform: scale(0.98); }
+.estimate-submit:disabled { opacity: 0.6; cursor: default; }
+.form-error {
+  color: #B3402E;
+  background: #F6E4DF;
+  font-size: var(--fs-small);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 12px;
+}
+
+/* ---------- FOOTER ---------- */
+.section-footer {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background-color: var(--text-muted); color: var(--text-light);
+  padding: var(--section-padding) var(--side-padding); gap: 14px; text-align: center;
+}
+.footer-phone { font-size: 14px; }
+.footer-copy { font-size: 12px; opacity: 0.8; }
+.footer-copy a { color: var(--text-light); }
+
+/* ---------- STICKY MOBILE CTA BAR ---------- */
+.mobile-cta-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  display: flex; gap: 10px;
+  padding: 12px var(--side-padding);
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  background: var(--bg-light);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+  z-index: 200;
+}
+.mobile-cta-bar a {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px 12px;
+  border-radius: 8px;
+  font-size: 16px; font-weight: 700;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+.mobile-cta-bar .bar-call { background: var(--text); color: var(--accent); }
+.mobile-cta-bar .bar-quote { background: linear-gradient(var(--accent), var(--accent-dark)); color: var(--text-light); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (min-width: 550px) {
+  .cta-form-nav { display: flex; }
+}
+@media (min-width: 700px) {
+  .packages-grid { grid-template-columns: repeat(3, 1fr); }
+  .vehicle-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  .jordan-wrap { flex-direction: row; align-items: center; }
+}
+@media (min-width: 900px) {
+  header { position: fixed; top: 0; left: 0; width: 100%; z-index: 900; }
+  nav { position: static; }
+  main { padding-top: 100px; }
+  .section-hero {
+    flex-direction: row; align-items: center; gap: 56px;
+    padding-left: max(var(--side-padding), calc((100% - 1100px) / 2));
+    padding-right: max(var(--side-padding), calc((100% - 1100px) / 2));
+  }
+  .hero-txt { width: auto; flex: 1 1 0; min-width: 0; justify-content: center; }
+  .hero-form { width: auto; flex: 0 0 480px; }
+  .desktop-img { display: block; }
+  .mobile-img { display: none; }
+  :root { --side-padding: 48px; --flex-direction: row; }
+}
+@media (min-width: 900px) {
+  .mobile-cta-bar { display: none; }
+  body { padding-bottom: 0; }
+}
+@media (min-width: 1200px) {
+  :root { --side-padding: 64px; }
+}
+/* Compact review bubbles on phones (kept last so it overrides the base review styles) */@media (max-width: 699px) {
+  .reviews-grid { gap: 20px 12px; }
+  .review-bubble { padding: 14px 14px 12px; border-radius: 18px; margin-bottom: 14px; }
+  .review-bubble::after { left: 18px; }
+  .review-bubble .stars { font-size: 14px; letter-spacing: 1px; margin-bottom: 6px; }
+  .review-text { font-size: 13px; line-height: 1.5; -webkit-line-clamp: 6; line-clamp: 6; }
+  .review-more { font-size: 12px; }
+  .review-author { gap: 8px; }
+  .review-author img, .review-initial { width: 32px; height: 32px; font-size: 15px; }
+  .review-author-name { font-size: 13px; line-height: 1.25; }
+  .review-author-src { font-size: 12px; }
+}
+
+/* ================= CERAMIC COATING PAGE ================= */
+.benefit-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.benefit {
+  background: var(--bg-light);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.benefit-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--accent-tint); color: var(--accent-dark);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.benefit-icon svg { width: 24px; height: 24px; }
+.benefit h3 { font-size: 17px; margin-bottom: 6px; }
+.benefit p { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+
+.compare-wrap { margin-top: 28px; overflow-x: auto; }
+.compare {
+  width: 100%; min-width: 420px;
+  border-collapse: separate; border-spacing: 0;
+  background: var(--bg-light);
+  border: 1.5px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 14px;
+}
+.compare th, .compare td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+.compare tr:last-child th, .compare tr:last-child td { border-bottom: none; }
+.compare thead th { background: var(--bg); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+.compare thead th.is-ceramic { background: var(--accent-tint); color: var(--accent-dark); }
+.compare tbody th { font-weight: 600; color: var(--text); width: 34%; }
+.compare td { color: var(--text-muted); }
+.compare td.is-ceramic { color: var(--text); font-weight: 600; background: #F7FBFE; }
+
+.steps { list-style: none; display: grid; grid-template-columns: 1fr; gap: 12px; counter-reset: step; }
+.step {
+  background: var(--bg-light);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.step-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent); color: var(--text-light);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; margin-bottom: 10px;
+}
+.step h3 { font-size: 16px; margin-bottom: 6px; }
+.step p { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+
+.price-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.price-card {
+  background: var(--bg-light);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex; flex-direction: column;
+}
+.price-card.featured { border: 2px solid var(--accent); }
+.price-card h3 { font-size: 17px; margin-bottom: 4px; }
+.price-card .price-tag { font-size: 28px; font-weight: 800; color: var(--accent-dark); margin: 6px 0 4px; }
+.price-card .price-tag.small { font-size: 20px; }
+.price-card p { font-size: 14px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px; }
+.price-card .pkg-book { margin-top: auto; }
+.price-factors { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 4px 0 16px; }
+.price-factors li { display: flex; gap: 8px; font-size: 14px; color: var(--text-muted); line-height: 1.45; }
+.price-factors li::before { content: '•'; color: var(--accent-dark); font-weight: 800; }
+.price-card { position: relative; }
+.price-card .pkg-badge { position: absolute; top: -12px; left: 20px; }
+.price-card .price-from { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-faint); margin: 4px 0 0; }
+.price-card .price-from + .price-tag { margin-top: 0; }
+.addons {
+  margin-top: 24px;
+  background: var(--bg-light);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.addons-title { font-size: 17px; margin-bottom: 14px; }
+.addons-grid { list-style: none; display: grid; grid-template-columns: 1fr; gap: 12px 24px; }
+.addons-grid li {
+  display: grid; grid-template-columns: 1fr auto; column-gap: 12px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.addon-name { font-size: 15px; font-weight: 700; }
+.addon-price { font-size: 15px; font-weight: 800; color: var(--accent-dark); text-align: right; }
+.addon-desc { grid-column: 1 / -1; font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.addons-note { margin-top: 12px; font-size: 13px; color: var(--text-faint); }
+@media (min-width: 700px) { .addons-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .addons-grid { grid-template-columns: repeat(3, 1fr); } }
+
+@media (min-width: 700px) {
+  .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .price-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1000px) {
+  .benefit-grid { grid-template-columns: repeat(4, 1fr); }
+  .steps { grid-template-columns: repeat(4, 1fr); }
+}
+/* Hide the sticky call/quote bar while the form itself is on screen */
+.mobile-cta-bar { transition: transform 200ms var(--ease-out-quart); }
+.mobile-cta-bar.is-hidden { transform: translateY(110%); }
+
+/* Phones: trim the hero so Name, Phone and the button fit on the first screen */
+@media (max-width: 699px) {
+  .section-hero { padding-top: 18px; padding-bottom: 28px; gap: 18px; }
+  .hero-txt { gap: 10px; }
+  .h1-extra, .section-hero p.hero-sub { display: none; }
+  h1.hero-h1 { font-size: 30px; }
+  .hero-points { gap: 6px; }
+  .hero-points li { font-size: 15px; }
+  .estimate-title { font-size: 21px; padding: 14px 16px 10px; }
+  .estimate-form { padding: 12px 18px 18px; }
+}
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2KM3ZD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <div id="top" aria-hidden="true"></div>
+    <div id="nav-sentinel" aria-hidden="true" style="position: absolute; top: 0; left: 0; height: 1px; width: 1px; pointer-events: none;"></div>
+
+    <header>
+      <nav>
+        <a href="#top" class="main-logo">
+          <img src="/resources/main-logo.png" alt="Clean Shine Detailing" class="desktop-img" width="200" height="60" fetchpriority="high">
+          <img src="/resources/main-logo-cropped.webp" alt="Clean Shine Detailing" class="mobile-img" width="60" height="60" fetchpriority="high">
+        </a>
+        <div class="ctas">
+          <a href="tel:+14807997248" class="cta-phone" aria-label="Call Clean Shine Detailing at (480) 799-7248">
+            <img src="/resources/phone.png" alt="" class="icon" width="18" height="18">
+            (480) 799-7248
+          </a>
+          <a href="#quote" class="cta-form cta-form-nav">Claim offer</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- 1. HERO -->
+      <section class="section-hero">
+        <div class="hero-txt">
+          <p class="trust-line">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span>5.0 on Google (44 reviews)</span>
+            <span class="dot" aria-hidden="true">·</span>
+            <span>East Valley, AZ</span>
+          </p>
+          <h1 class="hero-h1">Get a $300 windshield coating for just the cost of materials</h1>
+          <p class="hero-sub">We do the work for free at your home or office. Rain beads up and blows off as you drive, and bugs and dust wipe right off.</p>
+          <ul class="hero-points">
+            <li>Free labor. No catch, no pressure to buy more.</li>
+            <li>Done at your home or office, no water or power needed</li>
+            <li>No deposit. Pay only when you're happy.</li>
+          </ul>
+        </div>
+        <div class="hero-form">
+          <div class="estimate-card" id="quote">
+            <h2 class="estimate-title">Claim Your Windshield Coating</h2>
+            <form action="https://formspree.io/f/mnnwgyag" method="POST" class="estimate-form" id="quoteForm">
+              <input type="hidden" name="_subject" value="Windshield coating offer request">
+              <input type="hidden" name="page" value="landing/windshield-coating">
+
+              <div class="field-row field">
+                <label for="name" class="visually-hidden">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name*" autocomplete="name" required>
+              </div>
+              <div class="field-row field">
+                <label for="phone" class="visually-hidden">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number*" autocomplete="tel" required>
+              </div>
+
+              <fieldset>
+                <legend>Interested In: <span class="legend-optional">(optional)</span></legend>
+                <div class="check-grid">
+                  <label class="check-row"><input type="checkbox" name="services" value="Windshield Coating" checked> Windshield Coating</label>
+                  <label class="check-row"><input type="checkbox" name="services" value="1-Year Coating"> 1-Year Coating</label>
+                  <label class="check-row"><input type="checkbox" name="services" value="8-Year Coating"> 8-Year Coating</label>
+                  <label class="check-row"><input type="checkbox" name="services" value="8-Year Ultimate"> 8-Year Ultimate</label>
+                </div>
+              </fieldset>
+
+              <div class="field-row field">
+                <label for="vehicle" class="visually-hidden">Vehicle (optional)</label>
+                <input type="text" id="vehicle" name="vehicle" placeholder="Vehicle, e.g. 2023 Tesla Model Y (optional)">
+              </div>
+              <p class="form-note">We'll call to set a time and confirm your materials cost.</p>
+
+              <button type="submit" class="estimate-submit" aria-live="polite">Get My Windshield Coated</button>
+              <p class="form-error" id="formError" role="alert" hidden>Something went wrong sending your request. Please try again or call us at (480) 799-7248.</p>
+
+              <figure class="form-review">
+                <img src="/resources/shane.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="form-review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+                  <blockquote>"Very professional and nice came right on time. And it was a very easy process to book an appointment"</blockquote>
+                  <figcaption>Shane Wilsey, Google review</figcaption>
+                </div>
+              </figure>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. TRUST STRIP -->
+      <section class="section-trust" aria-label="Why customers trust us">
+        <div class="trust-grid">
+          <p class="trust-item" data-reveal style="--i: 0"><span class="check" aria-hidden="true"></span>No deposit, pay after</p>
+          <p class="trust-item" data-reveal style="--i: 1"><span class="check" aria-hidden="true"></span>Same-week availability</p>
+          <p class="trust-item" data-reveal style="--i: 2"><span class="check" aria-hidden="true"></span>Always Jordan, never a subcontractor</p>
+          <p class="trust-item" data-reveal style="--i: 3"><span class="check" aria-hidden="true"></span>Claim in 30 seconds</p>
+        </div>
+      </section>
+
+      <!-- 3. WHY A WINDSHIELD COATING -->
+      <section class="section" id="benefits" aria-labelledby="benefits-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">Why coat your windshield</p>
+          <h2 class="section-title" id="benefits-title">A clearer view when the rain hits</h2>
+          <p class="section-subtext">A windshield coating is a clear, water-repellent layer bonded to your glass. Water beads up and rolls off instead of smearing across your view.</p>
+          <div class="benefit-grid">
+            <div class="benefit" data-reveal style="--i: 0">
+              <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+              <h3>See better in the rain</h3>
+              <p>Rain beads up and blows off the glass as you drive, so you can see clearly in monsoon storms.</p>
+            </div>
+            <div class="benefit" data-reveal style="--i: 1">
+              <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19v2M8 13v2M16 19v2M16 13v2M12 21v2M12 15v2"/><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/></svg></div>
+              <h3>Less wiper use</h3>
+              <p>At highway speeds, water clears off on its own, so you lean on your wipers less.</p>
+            </div>
+            <div class="benefit" data-reveal style="--i: 2">
+              <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/></svg></div>
+              <h3>Easier to clean</h3>
+              <p>Bugs, dust and hard water spots come off the glass with less scrubbing.</p>
+            </div>
+            <div class="benefit" data-reveal style="--i: 3">
+              <div class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+              <h3>Done where you park</h3>
+              <p>We coat your windshield at your home or office. No shop visit needed.</p>
+            </div>
+          </div>
+
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PRICING -->
+      <section class="section section-alt" id="pricing" aria-labelledby="pricing-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">Optional upgrade</p>
+          <h2 class="section-title" id="pricing-title">Want the whole car protected?</h2>
+          <p class="section-subtext">Our ceramic coatings protect your paint for 1 or 8 years. Prices shown are for sedans. SUVs, trucks and larger vehicles start a little higher. You'll get your exact price before any work starts, and there's no deposit.</p>
+          <div class="price-grid">
+            <div class="price-card" data-reveal style="--i: 0">
+              <h3>8-Year Ultimate</h3>
+              <p class="price-from">Starting at</p>
+              <p class="price-tag">$3,600</p>
+              <p>The complete package for enthusiasts and show-quality finishes.</p>
+              <ul class="price-factors">
+                <li>Hand wash &amp; clay bar decontamination</li>
+                <li>Multi-step paint correction</li>
+                <li>8-year ceramic coating on all paint</li>
+                <li>Wheel faces and barrels coated</li>
+                <li>Calipers coated</li>
+                <li>All glass coated</li>
+                <li>Exterior trim coated</li>
+                <li>Interior ceramic coating</li>
+              </ul>
+              <a href="#quote" class="pkg-book" data-service="8-Year Ultimate">Get my free quote</a>
+            </div>
+            <div class="price-card featured" data-reveal style="--i: 1">
+              <span class="pkg-badge">Most popular</span>
+              <h3>8-Year Coating</h3>
+              <p class="price-from">Starting at</p>
+              <p class="price-tag">$1,200</p>
+              <p>Long-term protection with a polish that removes light swirls first, for a deeper shine.</p>
+              <ul class="price-factors">
+                <li>Hand wash &amp; clay bar decontamination</li>
+                <li>1-step paint correction</li>
+                <li>8-year ceramic coating on all paint</li>
+              </ul>
+              <a href="#quote" class="pkg-book" data-service="8-Year Coating">Get my free quote</a>
+            </div>
+            <div class="price-card" data-reveal style="--i: 2">
+              <h3>1-Year Coating</h3>
+              <p class="price-from">Starting at</p>
+              <p class="price-tag">$500</p>
+              <p>Great for newer or well-kept paint that doesn't need correction.</p>
+              <ul class="price-factors">
+                <li>Hand wash &amp; clay bar decontamination</li>
+                <li>1-year ceramic coating on all paint</li>
+                <li>No paint correction</li>
+              </ul>
+              <a href="#quote" class="pkg-book" data-service="1-Year Coating">Get my free quote</a>
+            </div>
+          </div>
+          <!-- Add-on prices are placeholders to confirm (glass $150 matches pricing.html) -->
+          <div class="addons">
+            <h3 class="addons-title">Add-ons for the 1-Year and 8-Year Coating</h3>
+            <ul class="addons-grid">
+              <li><span class="addon-name">Wheel coating</span><span class="addon-price">+$200</span><span class="addon-desc">Wheel faces. Brake dust wipes right off.</span></li>
+              <li><span class="addon-name">Caliper coating</span><span class="addon-price">+$100</span><span class="addon-desc">Keeps calipers clean and glossy.</span></li>
+              <li><span class="addon-name">Exterior trim coating</span><span class="addon-price">+$100</span><span class="addon-desc">Keeps black plastic trim dark and fade-free.</span></li>
+            </ul>
+            <p class="addons-note">All add-ons are already included in the 8-Year Ultimate.</p>
+          </div>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. HOW IT WORKS -->
+      <section class="section" id="process" aria-labelledby="process-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">How it works</p>
+          <h2 class="section-title" id="process-title">From claim to coated, at your home</h2>
+          <p class="section-subtext">No shop drop-off, and no obligation to buy anything else.</p>
+          <ol class="steps">
+            <li class="step" data-reveal style="--i: 0">
+              <p class="step-num" aria-hidden="true">1</p>
+              <h3>Claim your offer</h3>
+              <p>Send your name and number. We'll call to set a time and confirm your materials cost.</p>
+            </li>
+            <li class="step" data-reveal style="--i: 1">
+              <p class="step-num" aria-hidden="true">2</p>
+              <h3>We come to you</h3>
+              <p>We bring everything to your home or office, including our own water and power.</p>
+            </li>
+            <li class="step" data-reveal style="--i: 2">
+              <p class="step-num" aria-hidden="true">3</p>
+              <h3>Clean the glass</h3>
+              <p>Your windshield gets a deep clean so the coating bonds properly.</p>
+            </li>
+            <li class="step" data-reveal style="--i: 3">
+              <p class="step-num" aria-hidden="true">4</p>
+              <h3>Apply the coating</h3>
+              <p>The labor is on us. You only pay for materials, once the job is done and you're happy.</p>
+            </li>
+          </ol>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. RESULTS GALLERY (interior photos first so mobile puts them in the left column) -->
+      <section class="section section-alt" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">Recent work</p>
+          <h2 class="section-title" id="gallery-title">See the results</h2>
+          <p class="section-subtext">Real photos from recent details.</p>
+          <div class="gallery-grid">
+            <div class="media-slot gallery-slot" data-reveal style="--i: 0; border: none; padding: 0; overflow: hidden;">
+              <img src="/resources/lexus-interior.webp" alt="Detailed Lexus interior, dashboard and steering wheel" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 1; border: none; padding: 0; overflow: hidden;">
+              <img src="/resources/hundai-after.webp" alt="Clean Hyundai interior and dashboard, after detailing" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 2; border: none; padding: 0; overflow: hidden;">
+              <img src="/resources/genisis-wheel.webp" alt="Detailed interior seats, after cleaning" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 3; border: none; padding: 0; overflow: hidden;">
+              <img src="/resources/dbx-exterior.webp" alt="Aston Martin DBX with a deep, glossy finish after detailing" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 4; border: none; padding: 0; overflow: hidden;">
+              <img src="/resources/xm5-exterior.webp" alt="BMW X5 exterior after detailing, full shine" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="media-slot gallery-slot" data-reveal style="--i: 5; border: none; padding: 0; overflow: hidden;">
+              <img src="/resources/c7-exterior.webp" alt="Corvette exterior after detailing, glossy paint" width="600" height="600" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. REVIEWS -->
+      <section class="section" id="reviews" aria-labelledby="reviews-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">What customers say</p>
+          <h2 class="section-title" id="reviews-title">Rated 5.0 from 44 Google reviews</h2>
+          <p class="section-subtext">Real reviews from drivers across the East Valley.</p>
+          <ul class="reviews-grid">
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">I got a ceramic coating and he was on time and professional highly recommend!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/cynthia.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Cynthia Ouyang</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan came by and did a two-step paint correction on my vehicle. Very professional and nice came right on time. And it was a very easy process to book an appointment</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/shane.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Shane Wilsey</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">I had an outstanding experience with Clean Shine mobile detailing! My car looks better than it has in years. He did a complete exterior detail, including a thorough wash, wax, tire shine. Every inch of the vehicle was spotless, and the paint had an incredible shine. I would highly recommend Jordan If you’re looking for professional auto detailer with a reliable mobile service. He arrived on time and treated my vehicle like it was his own.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/erin.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Erin Paiso</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did an incredible job detailing our car. He was extremely thorough, detail oriented, and clearly takes a lot of pride in his work. Every inch of the car looked spotless inside and out and he did not miss a single thing. He was also professional, punctual, and easy to work with which made the whole experience seamless. You can tell he genuinely cares about delivering high quality results. Highly recommend Jordan if you are looking for someone who truly goes above and beyond.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/jenay-ryan.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">J'enay &amp; Ryan Buell</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan spent hours cleaning every millimeter of our Lexus. It was the most precise detailing I’ve ever had. When he finished, it looked so nice I thought it was someone else’s car. Additionally, Jordan is both polite and careful. I won’t hesitate to use him again.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/paul-profile.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Paul B</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did a fantastic job!! This young man has incredible work ethic, and takes pride in his job and it shows. I couldn’t be happier with the outcome of my car, it now looks as good as it did when I took it home from the dealership!! Great work Jordan!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/jessica-profile.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Jessica Carney</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Thank you Jordan for all your hard work. Jordan is a very detailed oriented and meticulous worker. He focused on all the little details and the car looks amazing. I got this as a gift for my daughter and when she gets back from the great North(Minnesota) I know she is going to be ecstatic! Great work and I appreciate your hard work. Worth every penny.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #1A73E8" aria-hidden="true">M</span>
+                <div>
+                  <p class="review-author-name">Miguel Montero</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did an amazing job on my truck today he took his time and made sure no detail was missed and my truck was filthy… I would highly recommend this young man to anyone looking for a honest hard working individual that is willing to go the extra mile to make sure things are done properly. He was also very patient and easy to work with.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #188038" aria-hidden="true">R</span>
+                <div>
+                  <p class="review-author-name">Ryan Cason</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan with Clean Shine Mobile Detailing did an outstanding job on my Tundra. He was punctual, professional, and paid attention to every detail. The truck looks absolutely spotless inside and out, honestly better than I expected.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #A142F4" aria-hidden="true">R</span>
+                <div>
+                  <p class="review-author-name">Ryan Wilson</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did a wonderful job detailing my car! He is so conscientious, friendly and efficient! You can tell he loves doing it. My car looks like brand new now! Definitely recommend!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/connie.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Connie Woods</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">I’m more than happy with the service. Interior detail looked great, and I was given tons of information about proper cleaning products and potential exterior services.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/zach.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Zach G</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan knows his stuff. Takes pride in his work and it shows up on the final product for sure. I've got a detail guy now.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/steve.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Steve C.</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did a great job and was very friendly! The truck was full of dogs’ hair and he cleaned all of it. Will definitely use again!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/ninel.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Ninel Kelly</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did a wonderful job detailing my car. He took his time and cleaned every inch. It was a pleasure having Jordan take care of my car. I highly recommend him.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/nancy.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Nancy Sines</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan did an interior detail on my 2011 Jetta. Left it looking brand new. He’s passionate about what he does and is very knowledgeable. Definitely recommend him!!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #E8710A" aria-hidden="true">R</span>
+                <div>
+                  <p class="review-author-name">Ricardo Gerena</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Jordan came through for me last minute on a Saturday morning and did a fantastic job. Will be using their services again in the future. Support your local businesses!</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/sam-profile.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Sam Groove</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">Great guy arrived on time and made my car look absolutely amazing</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <span class="review-initial" style="background: #7B61FF" aria-hidden="true">Z</span>
+                <div>
+                  <p class="review-author-name">Zander Schumacher</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+            <li class="review-extra" hidden>
+              <div class="review-bubble">
+                <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+                <p class="review-text">The stains from spilled drinks and hard to reach spots were all taken care of and I can tell Jordan takes pride in his work.</p>
+                <button type="button" class="review-more" hidden>Read more</button>
+              </div>
+              <div class="review-author">
+                <img src="/resources/sebastian.png" alt="" width="40" height="40" loading="lazy">
+                <div>
+                  <p class="review-author-name">Sebastian Acu&#241;a Quintanilla</p>
+                  <p class="review-author-src">on <span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="reviews-load"><button type="button" class="btn-quote reviews-load-btn" id="reviewsLoadMore">Load more reviews</button></div>
+          <p class="reviews-more"><a href="https://maps.app.goo.gl/TNSP9fZmYaVrCWnx5" target="_blank" rel="noopener">See all 44 reviews on Google →</a></p>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. MEET JORDAN -->
+      <section class="section section-alt" id="jordan" aria-labelledby="jordan-title">
+        <div class="section-inner jordan-wrap">
+          <div class="jordan-photo">
+            <img src="/resources/jordan-profile.webp" alt="Jordan, owner-operator of Clean Shine Detailing" width="140" height="140" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+          </div>
+          <div class="jordan-text">
+            <p class="section-eyebrow">Who’s showing up at your door</p>
+            <h2 class="section-title" id="jordan-title">Meet Jordan</h2>
+            <p><span class="jordan-name">Hi, I’m Jordan</span>, owner of Clean Shine Detailing. 44 five-star reviews and 100+ cars detailed in the East Valley.</p>
+            <p>When you book with me, I'm the one who shows up and does the work, not a tech I hired last month. Same hands, same standard, every time.</p>
+          <div class="section-ctas left">
+            <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. FAQ -->
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">Questions</p>
+          <h2 class="section-title" id="faq-title">Windshield coating questions</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1" onclick="toggleFaq(this)">
+                What's the catch?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
+              </button>
+              <div class="faq-a" id="faq-a-1"><div class="faq-a-inner">There isn't one. A windshield coating is normally $300. We waive the labor, so you just pay for the coating materials. We'll tell you the exact cost before any work starts, there's no deposit, and you pay after the job. It's an easy way to see our work up close.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2" onclick="toggleFaq(this)">
+                What is a windshield coating?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
+              </button>
+              <div class="faq-a" id="faq-a-2"><div class="faq-a-inner">A clear, water-repellent layer that bonds to your glass. Rain beads up and rolls off, so your view stays clearer in storms, and bugs and grime are easier to clean off.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3" onclick="toggleFaq(this)">
+                Do I have to buy anything else?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
+              </button>
+              <div class="faq-a" id="faq-a-3"><div class="faq-a-inner">No. The windshield coating is a standalone offer. If you'd like a quote on a full ceramic coating for your paint, we're happy to give one, but there's no pressure.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-8" onclick="toggleFaq(this)">
+                How much does a full ceramic coating cost?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
+              </button>
+              <div class="faq-a" id="faq-a-8"><div class="faq-a-inner">For a sedan, the 1-Year Coating starts at $500, the 8-Year Coating with 1-step correction starts at $1,200, and the 8-Year Ultimate starts at $3,600. SUVs, trucks and larger vehicles start a little higher. You'll get your exact price before any work starts.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-6" onclick="toggleFaq(this)">
+                Do you come to me?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
+              </button>
+              <div class="faq-a" id="faq-a-6"><div class="faq-a-inner">Yes, that's the whole point. We come to your home, office, or wherever your car is parked. No drop-off, no waiting at a shop.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-water" onclick="toggleFaq(this)">
+                Do I need to provide water or power?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
+              </button>
+              <div class="faq-a" id="faq-a-water"><div class="faq-a-inner">No. We bring our own water and our own power (we have a generator), plus all the professional equipment. You don't need a hose, an outlet or anything else, just access to your vehicle.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq-a-7" onclick="toggleFaq(this)">
+                Do you require a deposit? How do I pay?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="faq-chevron-g"><polyline points="6 9 12 15 18 9"/></g></svg>
+              </button>
+              <div class="faq-a" id="faq-a-7"><div class="faq-a-inner">No deposit required. Payment is collected after the job is complete and you're happy with the results. We accept all major credit and debit cards, cash, and Zelle.</div></div>
+            </div>
+          </div>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. SERVICE AREAS -->
+      <section class="section section-alt" id="areas" aria-labelledby="areas-title">
+        <div class="section-inner">
+          <p class="section-eyebrow">Where we work</p>
+          <h2 class="section-title" id="areas-title">Serving the East Valley</h2>
+          <div class="areas-list">
+            <span class="area-chip">Phoenix</span>
+            <span class="area-chip">Chandler</span>
+            <span class="area-chip">Mesa</span>
+            <span class="area-chip">Gilbert</span>
+            <span class="area-chip">Scottsdale</span>
+            <span class="area-chip">Tempe</span>
+            <span class="area-chip">Ahwatukee</span>
+            <span class="area-chip">Guadalupe</span>
+            <span class="area-chip">Queen Creek</span>
+            <span class="area-chip">San Tan Valley</span>
+            <span class="area-chip">Paradise Valley</span>
+            <span class="area-chip">Glendale</span>
+            <span class="area-chip">Fountain Hills</span>
+            <span class="area-chip">Tolleson</span>
+            <span class="area-chip">Rio Verde</span>
+            <span class="area-chip">Goodyear</span>
+          </div>
+          <p class="areas-note">Not sure if we cover your area? Call us and we're happy to check.</p>
+          <div class="section-ctas">
+            <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+            <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. FINAL CTA -->
+      <section class="section-final" aria-labelledby="final-cta-title">
+        <p class="section-eyebrow">Now booking this week</p>
+        <h2 id="final-cta-title">Ready for a clearer view in the rain?</h2>
+        <div class="section-ctas">
+          <a href="#quote" class="btn-quote">Get My Windshield Coated</a>
+          <a href="tel:+14807997248" class="btn-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">(480) 799-7248</a>
+        </div>
+        <p class="final-trust">★★★★★ 5.0 on Google · No deposit · Same-week availability</p>
+      </section>
+    </main>
+
+    <footer class="section-footer">
+      <p class="footer-phone">(480) 799-7248 · East Valley, AZ</p>
+      <p class="footer-copy">© 2026 Clean Shine Detailing. All rights reserved · <a href="/privacy-policy">Privacy Policy</a></p>
+    </footer>
+
+    <!-- STICKY MOBILE CTA BAR -->
+    <div class="mobile-cta-bar" role="region" aria-label="Quick actions">
+      <a href="tel:+14807997248" class="bar-call" aria-label="Call Clean Shine Detailing at (480) 799-7248">Call Now</a>
+      <a href="#quote" class="bar-quote">Claim Offer</a>
+    </div>
+
+    <script>
+      function toggleFaq(header) {
+        const isOpen = header.getAttribute('aria-expanded') === 'true';
+        const body = document.getElementById(header.getAttribute('aria-controls'));
+        const chevron = header.querySelector('.faq-chevron');
+        header.setAttribute('aria-expanded', String(!isOpen));
+        body.classList.toggle('open');
+        chevron.classList.toggle('open');
+      }
+
+      // Sticky nav compacts once the page has scrolled past the top.
+      (function () {
+        const sentinel = document.getElementById('nav-sentinel');
+        const navEl = document.querySelector('nav');
+        if (!sentinel || !navEl || !('IntersectionObserver' in window)) return;
+        const navObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            navEl.classList.toggle('nav-scrolled', !entry.isIntersecting);
+          });
+        });
+        navObserver.observe(sentinel);
+      })();
+
+      // Scroll-reveal for genuine repeating lists (trust items, packages, gallery, reviews).
+      // Content is fully visible by default; this only arms the hidden state once JS runs,
+      // and anything already in the viewport at load is marked visible immediately rather
+      // than waiting on the observer, so nothing can ship permanently blank.
+      (function () {
+        const revealEls = document.querySelectorAll('[data-reveal]');
+        if (!revealEls.length || !('IntersectionObserver' in window)) return;
+        document.body.classList.add('reveal-armed');
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+                entry.target.classList.add('reveal-in');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        const viewportHeight = window.innerHeight;
+        const rects = Array.from(revealEls, (el) => el.getBoundingClientRect());
+        revealEls.forEach((el, i) => {
+          const rect = rects[i];
+          const alreadyVisible = rect.top < viewportHeight && rect.bottom > 0;
+          if (alreadyVisible) {
+            el.classList.add('reveal-in');
+          } else {
+            revealObserver.observe(el);
+          }
+        });
+      })();
+
+      // Capture URL tracking params and inject as hidden fields
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const trackingParams = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_keyword', 'utm_content'];
+        trackingParams.forEach(function(param) {
+          const value = params.get(param);
+          if (value) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = param;
+            input.value = value;
+            document.getElementById('quoteForm').appendChild(input);
+          }
+        });
+      })();
+
+      // Pricing cards: scroll up to the quote form and tick the matching service.
+      document.querySelectorAll('.pkg-book[data-service]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          const box = document.querySelector('#quoteForm input[name="services"][value="' + link.dataset.service + '"]');
+          if (box) box.checked = true;
+        });
+      });
+
+      // Reviews: "Read more" only on reviews that are cut off, and "Load more" reveals the rest.
+      (function () {
+        function checkClamp(bubble) {
+          const text = bubble.querySelector('.review-text');
+          const more = bubble.querySelector('.review-more');
+          if (!bubble.classList.contains('expanded')) {
+            more.hidden = text.scrollHeight <= text.clientHeight + 1;
+          }
+        }
+        document.querySelectorAll('.review-bubble').forEach(function (bubble) {
+          const more = bubble.querySelector('.review-more');
+          more.addEventListener('click', function () {
+            const expanded = bubble.classList.toggle('expanded');
+            more.textContent = expanded ? 'Read less' : 'Read more';
+          });
+          checkClamp(bubble);
+        });
+        window.addEventListener('resize', function () {
+          document.querySelectorAll('.reviews-grid > li:not([hidden]) .review-bubble').forEach(checkClamp);
+        });
+        const loadBtn = document.getElementById('reviewsLoadMore');
+        const extras = document.querySelectorAll('.review-extra');
+        if (!extras.length) { loadBtn.hidden = true; return; }
+        loadBtn.addEventListener('click', function () {
+          extras.forEach(function (li) {
+            li.hidden = false;
+            checkClamp(li.querySelector('.review-bubble'));
+          });
+          loadBtn.hidden = true;
+        });
+      })();
+
+      // Tell GTM about phone taps so calls can be tracked as conversions.
+      document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'phone_click', page: 'landing/windshield-coating' });
+        });
+      });
+
+      // Hide the sticky call/quote bar while the quote form is on screen, so it never covers the fields.
+      (function () {
+        const bar = document.querySelector('.mobile-cta-bar');
+        const card = document.getElementById('quote');
+        if (!bar || !card || !('IntersectionObserver' in window)) return;
+        new IntersectionObserver(function (entries) {
+          bar.classList.toggle('is-hidden', entries[0].isIntersecting);
+        }, { threshold: 0.15 }).observe(card);
+      })();
+
+      const quoteForm = document.getElementById("quoteForm");
+      const formError = document.getElementById("formError");
+      quoteForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const submitBtn = quoteForm.querySelector(".estimate-submit");
+        const originalBtnHTML = submitBtn.innerHTML;
+        formError.hidden = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+        fetch(quoteForm.action, {
+          method: "POST",
+          body: new FormData(quoteForm),
+          headers: { Accept: "application/json" },
+        })
+          .then((response) => {
+            if (response.ok) {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: 'quote_form_submit', page: 'landing/windshield-coating' });
+              window.location.href = "/thank-you.html";
+            } else {
+              throw new Error("Submission failed");
+            }
+          })
+          .catch(() => {
+            formError.hidden = false;
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHTML;
+          });
+      });
+    </script>
+
+    <!-- Google Tag Manager: loaded after first paint so it can't block LCP -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ2KM3ZD');</script>
+    <!-- End Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691480552"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17691480552', {
+        'phone_conversion_number': '(480) 799-7248'
+      });
+    </script>
+  </body>
+</html>
+
