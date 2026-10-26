@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap">
+    <link rel="preload" href="/resources/hero.webp" as="image" fetchpriority="high">
+    <!-- Offer page for the job-site sign only, so keep it out of search results -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="/resources/main-logo-cropped.webp">
+    <title>$50 off your detail - Clean Shine Detailing</title>
+    <style>
+:root {
+  --accent: #44B5EE;
+  --accent-dark: #1c7fb0;
+  --accent-tint: #EEF8FD;
+  --accent-tint2: #D9F0FB;
+  --text: #000000;
+  --text-light: #ffffff;
+  --text-muted: #4D4D4D;
+  --text-faint: #6E6E6E;
+  --google-star: #FBBC04;
+  --bg-light: #FFFFFF;
+  --border: #E2E2E2;
+
+  --font: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --radius: 16px;
+  --radius-sm: 8px;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+body {
+  font-family: var(--font);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px 16px max(24px, env(safe-area-inset-bottom));
+  /* Same hero photo + dark blue overlay as the landing pages */
+  background-color: #0c2048;
+  background-image: linear-gradient(rgba(12, 32, 72, 0.84), rgba(12, 32, 72, 0.84)), url('/resources/hero.webp');
+  background-size: cover;
+  background-position: center;
+}
+:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.offer-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  padding: 28px 24px 22px;
+  animation: card-in 700ms var(--ease-out-quint) both;
+}
+.offer-logo {
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+}
+.offer-eyebrow {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 6px;
+}
+.offer-h1 {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-bottom: 8px;
+}
+.offer-h1 .amount { color: var(--accent-dark); }
+.offer-sub {
+  text-align: center;
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 16px;
+  text-wrap: pretty;
+}
+
+/* Rating row: stacked customer photos + Google score */
+.proof-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.avatars { display: flex; }
+.avatars img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--bg-light);
+  margin-left: -9px;
+}
+.avatars img:first-child { margin-left: 0; }
+.proof-text { font-size: 13px; line-height: 1.3; color: var(--text-muted); }
+.proof-text .stars { color: var(--google-star); font-size: 14px; letter-spacing: 1px; }
+.proof-text strong { color: var(--text); }
+.proof-text a { color: inherit; text-underline-offset: 2px; }
+
+.field { margin-bottom: 14px; }
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  font-family: var(--font);
+  font-size: 16px;
+  color: var(--text);
+  background: var(--bg-light);
+  border: 1.5px solid #c9c9c9;
+  border-radius: 10px;
+  transition: border-color 150ms var(--ease-out-quart), box-shadow 150ms var(--ease-out-quart);
+}
+.field input::placeholder { color: #9a9a9a; }
+.field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-tint2); }
+
+.offer-submit {
+  width: 100%;
+  margin-top: 4px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(var(--accent), var(--accent-dark));
+  color: var(--text-light);
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(28, 127, 176, 0.35);
+  touch-action: manipulation;
+  transition: transform 150ms var(--ease-out-quart), filter 150ms var(--ease-out-quart), opacity 150ms var(--ease-out-quart);
+}
+.offer-submit:hover { filter: brightness(1.05); }
+.offer-submit:active { transform: scale(0.98); }
+.offer-submit:disabled { opacity: 0.6; cursor: default; }
+
+.form-error {
+  color: #B3402E;
+  background: #F6E4DF;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 12px;
+}
+.form-error a { color: inherit; font-weight: 700; }
+
+.offer-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 10px;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.offer-trust .dot { color: var(--border); }
+
+/* Short real review under the button, to reassure at the moment of decision */
+.offer-review {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.offer-review img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.offer-review-stars { color: var(--google-star); font-size: 13px; letter-spacing: 1px; line-height: 1; margin-bottom: 4px; }
+.offer-review blockquote { font-size: 14px; font-style: italic; line-height: 1.45; }
+.offer-review figcaption { font-size: 12px; color: var(--text-faint); margin-top: 3px; }
+
+/* Success state, swapped in for the form after it sends */
+.offer-done { text-align: center; }
+.offer-done[hidden] { display: none; }
+.done-check {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+.done-check svg { width: 26px; height: 26px; }
+.offer-done h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+.offer-done h2:focus { outline: none; }
+.offer-done p { font-size: 16px; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px; }
+.done-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: var(--text);
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+.done-call img { height: 18px; width: 18px; }
+
+.offer-foot {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+.offer-foot a { color: rgba(255, 255, 255, 0.85); }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2KM3ZD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <main class="offer-card">
+      <img src="/resources/main-logo-cropped.webp" alt="Clean Shine Detailing" class="offer-logo" width="56" height="56" fetchpriority="high">
+
+      <div id="offerForm">
+        <p class="offer-eyebrow">Saw our sign?</p>
+        <h1 class="offer-h1">Get <span class="amount">$50 off</span> your detail</h1>
+        <p class="offer-sub">Leave your name and number. Jordan will text you to set up a time.</p>
+
+        <div class="proof-row">
+          <div class="avatars" aria-hidden="true">
+            <img src="/resources/jenay-ryan.png" alt="" width="32" height="32">
+            <img src="/resources/erin.png" alt="" width="32" height="32">
+            <img src="/resources/jessica-profile.png" alt="" width="32" height="32">
+            <img src="/resources/steve.png" alt="" width="32" height="32">
+          </div>
+          <p class="proof-text">
+            <span class="stars" aria-hidden="true">★★★★★</span><br>
+            <strong>5.0</strong> from <a href="https://maps.app.goo.gl/TNSP9fZmYaVrCWnx5" target="_blank" rel="noopener">44 Google reviews</a>
+          </p>
+        </div>
+
+        <form action="https://formspree.io/f/mnnwgyag" method="POST" id="signForm">
+          <input type="hidden" name="_subject" value="$50 off sign lead">
+          <input type="hidden" name="page" value="50off">
+          <input type="hidden" name="offer" value="$50 off (job-site sign)">
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Jake Thomson" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(480) 555-0192" autocomplete="tel" inputmode="tel" required>
+          </div>
+
+          <button type="submit" class="offer-submit">Claim my $50 off</button>
+          <p class="form-error" id="formError" role="alert" hidden>Something went wrong. Please try again or call <a href="tel:+14807997248">(480) 799-7248</a>.</p>
+        </form>
+
+        <p class="offer-trust">
+          <span>No deposit, pay after</span>
+          <span class="dot" aria-hidden="true">·</span>
+          <span>We come to you</span>
+        </p>
+
+        <figure class="offer-review">
+          <img src="/resources/paul-profile.png" alt="" width="40" height="40">
+          <div>
+            <p class="offer-review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+            <blockquote>"When he finished, it looked so nice I thought it was someone else's car."</blockquote>
+            <figcaption>Paul B, Google review</figcaption>
+          </div>
+        </figure>
+      </div>
+
+      <div class="offer-done" id="offerDone" hidden>
+        <div class="done-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#44B5EE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 tabindex="-1" id="doneTitle">You're in!</h2>
+        <p>Your $50 off is saved. Jordan will text you from (480) 799-7248 soon to pick a time.</p>
+        <a href="tel:+14807997248" class="done-call">
+          <img src="/resources/phone.png" alt="">
+          Can't wait? Call now
+        </a>
+      </div>
+    </main>
+
+    <p class="offer-foot">© 2026 Clean Shine Detailing · <a href="/privacy-policy">Privacy</a></p>
+
+    <script>
+      const signForm = document.getElementById("signForm");
+      const formError = document.getElementById("formError");
+      signForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const submitBtn = signForm.querySelector(".offer-submit");
+        const originalBtnHTML = submitBtn.innerHTML;
+        formError.hidden = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+        fetch(signForm.action, {
+          method: "POST",
+          body: new FormData(signForm),
+          headers: { Accept: "application/json" },
+        })
+          .then((response) => {
+            if (response.ok) {
+              // Own event name (not quote_form_submit / generate_lead) so sign leads
+              // don't get counted as Google Ads conversions.
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: 'sign_offer_submit', page: '50off' });
+              document.getElementById("offerForm").hidden = true;
+              document.getElementById("offerDone").hidden = false;
+              document.getElementById("doneTitle").focus();
+            } else {
+              throw new Error("Submission failed");
+            }
+          })
+          .catch(() => {
+            formError.hidden = false;
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHTML;
+          });
+      });
+    </script>
+
+    <!-- Google Tag Manager: loaded after first paint so it can't block LCP -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQ2KM3ZD');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
